@@ -392,6 +392,7 @@
     .tree-toggle svg { width: 14px; height: 14px; }
     .tree-select { min-width: 0; min-height: 36px; display: flex; align-items: center; flex: 1; gap: 7px; padding: 6px 4px; color: inherit; background: transparent; border: 0; text-align: left; }
     .node-symbol { width: 18px; height: 18px; display: inline-flex; align-items: center; justify-content: center; flex: 0 0 18px; border-radius: 4px; font-size: 11px; line-height: 18px; font-weight: 500; text-align: center; }
+    .node-symbol svg { width: 12px; height: 12px; }
     .scope-folder-symbol { width: 18px; height: 18px; flex: 0 0 18px; color: var(--primary); }
     .symbol-platform { color: #fff; background: var(--primary); }
     .symbol-group { color: #531dab; background: #efdbff; }
@@ -701,6 +702,7 @@
     .permission-main { min-width: 0; }
     .permission-person-head { display: flex; align-items: center; justify-content: space-between; gap: 18px; min-height: 78px; padding: 14px 20px; border-bottom: 1px solid var(--border-secondary); }
     .permission-person-head .ant-btn { min-width: 88px; }
+    .permission-person-actions #savePermissions:not(.ant-btn-primary) { color: var(--text-secondary); background: transparent; border-color: transparent; box-shadow: none; }
     .permission-person-name-row { display: flex; align-items: center; gap: 8px; }
     .permission-person-name { font-size: 16px; font-weight: 500; }
     .permission-mode { flex: 0 0 auto; padding: 0 7px; color: var(--text-tertiary); background: var(--layout); border: 1px solid var(--border-secondary); border-radius: 4px; font-size: 11px; line-height: 20px; }
@@ -742,17 +744,22 @@
     .permission-tree-icon { width: 17px; height: 17px; color: var(--text-tertiary); }
     .permission-node-type { padding: 0 5px; color: var(--text-tertiary); background: var(--layout); border-radius: 3px; font-size: 11px; line-height: 20px; }
     .permission-tree-note { margin-left: auto; color: var(--text-tertiary); font-size: 12px; }
-    .permission-data-row { display: grid; grid-template-columns: minmax(150px, 1fr) minmax(180px, 1.2fr) 228px; align-items: center; gap: 16px; min-height: 66px; padding: 8px 12px; border-bottom: 1px solid var(--border-secondary); }
-    .permission-data-name { font-weight: 500; }
-    .permission-data-note { color: var(--text-tertiary); font-size: 12px; }
-    .permission-levels { height: 32px; display: grid; grid-template-columns: repeat(3, 1fr); padding: 2px; background: var(--layout); border-radius: var(--radius); }
-    .permission-level { min-width: 0; padding: 0 6px; color: var(--text-secondary); background: transparent; border: 0; border-radius: 4px; font-size: 12px; white-space: nowrap; }
-    .permission-level.active { color: var(--primary); background: var(--surface); box-shadow: 0 1px 3px #00000014; font-weight: 500; }
-    .permission-level:disabled { cursor: default; }
-    .permission-level:not(.active):disabled { color: var(--text-disabled); }
-    .permission-data-status { justify-self: end; min-width: 72px; padding: 0 10px; color: var(--text-secondary); background: var(--layout); border: 1px solid var(--border-secondary); border-radius: 4px; font-size: 12px; line-height: 28px; text-align: center; }
-    .permission-data-status.summary { color: #0958d9; background: #e6f4ff; border-color: #91caff; }
-    .permission-data-status.detail { color: #237804; background: #f6ffed; border-color: #b7eb8f; }
+    .permission-report-toolbar { max-width: 760px; display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 12px; }
+    .permission-report-count { color: var(--text-tertiary); font-size: 12px; }
+    .permission-report-list { max-width: 760px; display: grid; gap: 10px; }
+    .permission-report { padding: 14px 16px; border: 1px solid var(--border-secondary); border-radius: var(--radius); }
+    .permission-report-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+    .permission-report-name { font-weight: 500; }
+    .permission-report-remove { width: 30px; height: 30px; display: grid; place-items: center; flex: 0 0 30px; padding: 0; color: var(--text-tertiary); background: transparent; border: 0; border-radius: var(--radius); }
+    .permission-report-remove:hover { color: var(--danger); background: #fff1f0; }
+    .permission-report-remove svg { width: 16px; height: 16px; }
+    .permission-report-link { min-width: 0; display: inline-flex; align-items: center; gap: 6px; max-width: 100%; margin-top: 8px; color: var(--primary); font-size: 13px; text-decoration: none; }
+    .permission-report-link span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .permission-report-link svg { width: 15px; height: 15px; flex: 0 0 auto; }
+    .permission-report-empty { max-width: 760px; padding: 28px 16px; color: var(--text-disabled); background: var(--layout); border: 1px dashed var(--border); border-radius: var(--radius); font-size: 13px; text-align: center; }
+    .permission-report-fields { display: grid; grid-template-columns: minmax(140px, .45fr) minmax(240px, 1fr) 30px; gap: 8px; align-items: center; }
+    .permission-report-input { width: 100%; height: 36px; padding: 0 10px; border: 1px solid var(--border); border-radius: var(--radius); outline: 0; }
+    .permission-report-input:focus { border-color: var(--primary); box-shadow: 0 0 0 2px #1677ff1a; }
     .account-match { min-height: 96px; margin-top: 14px; padding: 14px; background: var(--layout); border: 1px solid var(--border-secondary); border-radius: var(--radius); }
     .account-match-empty { min-height: 66px; display: grid; place-items: center; color: var(--text-tertiary); font-size: 12px; text-align: center; }
     .account-match-empty strong { color: var(--danger); font-weight: 500; }
@@ -1070,8 +1077,9 @@
       .permission-tree-row.depth-3 { padding-left: 44px; }
       .permission-node-type { white-space: nowrap; }
       .permission-tree-note { grid-column: 3 / -1; margin-left: 0; white-space: nowrap; }
-      .permission-data-row { grid-template-columns: minmax(0, 1fr) minmax(180px, 228px); gap: 8px; }
-      .permission-data-note { grid-column: 1 / -1; grid-row: 2; }
+      .permission-report { padding: 12px 14px; }
+      .permission-report-fields { grid-template-columns: minmax(0, 1fr) 30px; }
+      .permission-report-fields [data-permission-report-name] { grid-column: 1 / -1; }
       .my-page { max-width: none; }
       .my-profile { padding: 16px; }
       .concept-section { margin-bottom: 12px; }
@@ -1300,7 +1308,7 @@
     <aside class="main-nav" aria-label="主导航">
       <div class="nav-label">工作台</div>
       <button class="nav-item" id="navDashboard"><i class="nav-icon" data-lucide="layout-dashboard" aria-hidden="true"></i><span>经营总览</span></button>
-      <button class="nav-item active" id="navRelations"><i class="nav-icon" data-lucide="network" aria-hidden="true"></i><span>机构管理</span></button>
+      <button class="nav-item active" id="navRelations"><i class="nav-icon" data-lucide="network" aria-hidden="true"></i><span>学校管理</span></button>
       <div class="nav-label">客户经营</div>
       <button class="nav-item mobile-nav-hidden" data-module="orders"><i class="nav-icon" data-lucide="receipt-text" aria-hidden="true"></i><span>套餐订单</span></button>
       <div class="nav-label">平台监管</div>
@@ -1315,7 +1323,7 @@
         <div class="page-heading">
           <div>
             <h1 class="page-title">经营总览</h1>
-            <div class="page-description">查看授权范围内机构的学员、收费、课消与经营异常</div>
+            <div class="page-description">查看授权范围内学校的学员、收费、课消与经营异常</div>
           </div>
           <div class="dashboard-controls">
             <select class="ant-select" id="dashboardScope" aria-label="经营管理范围"></select>
@@ -1325,7 +1333,7 @@
         </div>
 
         <section class="metrics-band" aria-label="经营核心指标">
-          <div class="metric"><div class="metric-label"><span><i class="dashboard-label-icon" data-lucide="building-2" aria-hidden="true"></i>下属机构</span><span>家</span></div><div class="metric-value" id="dashboardInstitutions">0</div><div class="metric-note link-note" id="dashboardInstitutionDelta" title="点击查看本月新增机构名单">当前管理范围</div></div>
+          <div class="metric"><div class="metric-label"><span><i class="dashboard-label-icon" data-lucide="building-2" aria-hidden="true"></i>下属学校</span><span>所</span></div><div class="metric-value" id="dashboardInstitutions">0</div><div class="metric-note link-note" id="dashboardInstitutionDelta" title="点击查看本月新增学校名单">当前管理范围</div></div>
           <div class="metric"><div class="metric-label"><span><i class="dashboard-label-icon" data-lucide="users" aria-hidden="true"></i>在读学员</span><span>人</span></div><div class="metric-value" id="dashboardStudents">0</div><div class="metric-note" id="dashboardStudentDelta">较上期</div></div>
           <div class="metric"><div class="metric-label"><span><i class="dashboard-label-icon" data-lucide="circle-dollar-sign" aria-hidden="true"></i><span id="dashboardFeeLabel">本月净收费</span></span><button type="button" class="metric-visibility-toggle" data-financial-visibility aria-label="显示收费数据" title="显示收费数据"><i data-lucide="eye-off" aria-hidden="true"></i></button></div><div class="metric-value" id="dashboardFee">¥0</div><div class="metric-note" id="dashboardFeeDelta">较上期</div></div>
           <div class="metric"><div class="metric-label"><span><i class="dashboard-label-icon" data-lucide="chart-no-axes-column-increasing" aria-hidden="true"></i><span id="dashboardLessonLabel">本月课消</span></span><button type="button" class="metric-visibility-toggle" data-financial-visibility aria-label="显示课消数据" title="显示课消数据"><i data-lucide="eye-off" aria-hidden="true"></i></button></div><div class="metric-value" id="dashboardLesson">¥0</div><div class="metric-note" id="dashboardLessonDelta">收费课消率</div></div>
@@ -1354,17 +1362,17 @@
             <div><div class="dashboard-section-title">系统客户区域分布</div><div class="dashboard-section-note" id="regionScopeNote">按当前管理范围汇总</div></div><button class="ant-btn ant-btn-text" id="regionResetButton" hidden><i data-lucide="globe-2" aria-hidden="true"></i> 返回全国</button>
           </div>
           <div class="region-distribution">
-            <div class="region-map"><svg id="chinaRegionMap" viewBox="20 12 480 296" role="img" aria-label="中国系统客户区域分布图"></svg><div class="region-map-legend"><span>机构数量</span><span class="region-map-gradient"></span><span>少</span><span>多</span></div></div>
+            <div class="region-map"><svg id="chinaRegionMap" viewBox="20 12 480 296" role="img" aria-label="中国系统客户区域分布图"></svg><div class="region-map-legend"><span>学校数量</span><span class="region-map-gradient"></span><span>少</span><span>多</span></div></div>
             <div class="region-ranking" id="regionRanking"></div>
           </div>
         </section>
 
         <div class="dashboard-lower">
           <section class="dashboard-section">
-            <div class="dashboard-section-head"><div><div class="dashboard-section-title">下属节点经营表现</div><div class="dashboard-section-note">点击节点进入对应经营范围</div></div><button class="ant-btn ant-btn-text" id="openRelationsFromDashboard">查看机构管理</button></div>
+            <div class="dashboard-section-head"><div><div class="dashboard-section-title">下属节点经营表现</div><div class="dashboard-section-note">点击节点进入对应经营范围</div></div><button class="ant-btn ant-btn-text" id="openRelationsFromDashboard">查看学校管理</button></div>
             <div class="dashboard-table-wrap">
               <table class="dashboard-table">
-                <thead><tr><th>节点</th><th class="numeric">机构数</th><th class="numeric">在读学员</th><th class="numeric" id="dashboardTableFeeHead">本月净收费</th><th class="numeric" id="dashboardTableLessonHead">本月课消</th><th class="numeric">环比</th></tr></thead>
+                <thead><tr><th>节点</th><th class="numeric">学校数</th><th class="numeric">在读学员</th><th class="numeric" id="dashboardTableFeeHead">本月净收费</th><th class="numeric" id="dashboardTableLessonHead">本月课消</th><th class="numeric">环比</th></tr></thead>
                 <tbody id="dashboardNodeRows"></tbody>
               </table>
               <div class="dashboard-empty" id="dashboardNodeEmpty" hidden>当前节点没有下属管理节点</div>
@@ -1398,7 +1406,7 @@
 
       <section id="permissionPage" hidden>
         <div class="page-heading">
-          <div><h1 class="page-title">权限设置</h1><div class="page-description">为人员配置可使用的功能、可管理的组织节点和可查看的数据</div></div>
+          <div><h1 class="page-title">权限设置</h1><div class="page-description">为人员配置可使用的功能、可管理的组织节点和 BI 报表入口</div></div>
         </div>
         <div class="permission-layout">
           <aside class="permission-people" aria-label="赋权对象">
@@ -1407,7 +1415,7 @@
           </aside>
           <section class="permission-main">
             <div class="permission-person-head"><div><div class="permission-person-name-row"><div class="permission-person-name" id="permissionPersonName"></div><span class="permission-mode" id="permissionMode">查看中</span></div><div class="permission-person-institution" id="permissionPersonInstitution"></div><div class="permission-summary" id="permissionSummary"></div></div><div class="permission-person-actions"><button class="ant-btn" id="cancelPermissionEdit" hidden><i data-lucide="x" aria-hidden="true"></i>取消</button><button class="ant-btn" id="savePermissions"><i data-lucide="pencil" aria-hidden="true"></i>修改权限</button></div></div>
-            <div class="permission-tabs" role="tablist" aria-label="权限类型"><button class="permission-tab active" data-permission-tab="functions" role="tab">功能权限</button><button class="permission-tab" data-permission-tab="nodes" role="tab">组织范围</button><button class="permission-tab" data-permission-tab="data" role="tab">数据权限</button></div>
+            <div class="permission-tabs" role="tablist" aria-label="权限类型"><button class="permission-tab active" data-permission-tab="functions" role="tab">功能权限</button><button class="permission-tab" data-permission-tab="nodes" role="tab">组织范围</button><button class="permission-tab" data-permission-tab="reports" role="tab">BI 报表</button></div>
             <div class="permission-content" id="permissionContent"></div>
           </section>
         </div>
@@ -1462,7 +1470,7 @@
       <section class="scope-metrics-panel" id="scopeMetricsPanel" aria-label="当前统计范围及经营汇总">
         <div class="metrics-scope">
           <button type="button" class="metrics-scope-content" id="scopeSwitchButton" aria-label="定位当前组织" title="定位当前组织">
-            <span class="node-symbol metrics-scope-symbol symbol-platform" id="metricScopeSymbol">校</span>
+            <span class="node-symbol metrics-scope-symbol symbol-platform" id="metricScopeSymbol"><i data-lucide="blocks" aria-hidden="true"></i></span>
             <div class="metrics-scope-text">
               <div class="metrics-scope-eyebrow" id="metricScopeEyebrow">当前查看范围</div>
               <div class="metrics-scope-main"><span class="metrics-scope-name" id="metricScopeName">校猩猩平台</span><span class="metrics-scope-type" id="metricScopeType">平台</span></div>
@@ -1483,7 +1491,7 @@
             <details class="scope-actions-more" id="createActionsMore" hidden>
               <summary class="ant-btn">更多</summary>
               <div class="scope-actions-menu">
-                <button class="ant-btn" id="toggleScopeHeadquartersTagButton" hidden>设为总部机构</button>
+                <button class="ant-btn" id="toggleScopeHeadquartersTagButton" hidden>设为总部学校</button>
                 <button class="ant-btn" id="createButton" aria-label="创建渠道" title="创建渠道">创建渠道</button>
               </div>
             </details>
@@ -1491,7 +1499,7 @@
               <summary class="ant-btn">更多</summary>
               <div class="scope-actions-menu">
                 <button class="ant-btn" data-mobile-scope-action="adjustButton">调整归属</button>
-                <button class="ant-btn" data-mobile-scope-action="toggleScopeHeadquartersTagButton">设为总部机构</button>
+                <button class="ant-btn" data-mobile-scope-action="toggleScopeHeadquartersTagButton">设为总部学校</button>
                 <button class="ant-btn" data-mobile-scope-action="franchiseScopeButton">添加加盟机构</button>
                 <button class="ant-btn" data-mobile-scope-action="createButton">创建渠道</button>
                 <button class="ant-btn" data-mobile-scope-action="renameButton">修改名称</button>
@@ -1501,7 +1509,7 @@
           </div>
         </div>
         <div class="metrics-band">
-          <div class="metric"><div class="metric-label"><span id="metricInstitutionLabel">全平台机构</span><span>家</span></div><div class="metric-value" id="metricInstitutions">0</div><div class="metric-note" id="metricInstitutionNote">当前节点全部后代机构</div></div>
+          <div class="metric"><div class="metric-label"><span id="metricInstitutionLabel">全平台学校</span><span>所</span></div><div class="metric-value" id="metricInstitutions">0</div><div class="metric-note" id="metricInstitutionNote">当前节点全部后代学校</div></div>
           <div class="metric"><div class="metric-label"><span>在读学员</span><span>人</span></div><div class="metric-value" id="metricStudents">0</div><div class="metric-note">当前日期存量快照</div></div>
           <div class="metric"><div class="metric-label"><span id="feeMetricLabel">本月净收费</span><button type="button" class="metric-visibility-toggle" data-financial-visibility aria-label="显示收费数据" title="显示收费数据"><i data-lucide="eye-off" aria-hidden="true"></i></button></div><div class="metric-value" id="metricFee">¥0</div><div class="metric-note" id="metricFeeNote">实收金额减退款</div></div>
           <div class="metric"><div class="metric-label"><span id="lessonMetricLabel">本月课消</span><button type="button" class="metric-visibility-toggle" data-financial-visibility aria-label="显示课消数据" title="显示课消数据"><i data-lucide="eye-off" aria-hidden="true"></i></button></div><div class="metric-value" id="metricLesson">¥0</div><div class="metric-note" id="metricLessonNote">0 课时</div></div>
@@ -1509,23 +1517,23 @@
       </section>
 
       <button type="button" class="mobile-only mobile-scope-selector" id="openMobileTree" aria-label="选择管理范围">
-        <span class="node-symbol symbol-platform" id="mobileScopeSymbol">校</span>
+        <span class="node-symbol symbol-platform" id="mobileScopeSymbol"><i data-lucide="blocks" aria-hidden="true"></i></span>
         <span class="mobile-scope-copy"><span class="mobile-scope-label">当前管理范围</span><strong class="mobile-scope-name" id="mobileScopeName">校猩猩平台</strong><span class="mobile-scope-path" id="mobileScopePath">校猩猩平台 · 全部客户范围</span></span>
         <i data-lucide="chevron-right" aria-hidden="true"></i>
       </button>
 
       <section class="management-area">
         <div class="list-toolbar">
-          <div class="toolbar-left"><span class="list-title">机构列表</span><span class="list-count" id="listCount">500 家</span><div class="view-switch" role="group" aria-label="关系查看方式"><button type="button" class="active" id="treeViewButton" aria-pressed="true"><i data-lucide="list-tree" aria-hidden="true"></i><span>机构列表</span></button><button type="button" id="topologyViewButton" aria-pressed="false"><i data-lucide="git-fork" aria-hidden="true"></i><span>关系图</span></button></div></div>
+          <div class="toolbar-left"><span class="list-title">学校列表</span><span class="list-count" id="listCount">500 所</span><div class="view-switch" role="group" aria-label="关系查看方式"><button type="button" class="active" id="treeViewButton" aria-pressed="true"><i data-lucide="list-tree" aria-hidden="true"></i><span>学校列表</span></button><button type="button" id="topologyViewButton" aria-pressed="false"><i data-lucide="git-fork" aria-hidden="true"></i><span>关系图</span></button></div></div>
           <div class="toolbar-right">
             <select class="ant-select" id="paymentFilter" aria-label="线上收款筛选"><option value="all">收款状态</option><option value="on">已开通线上收款</option><option value="off">未开通</option></select>
             <select class="ant-select" id="periodSelect" aria-label="统计周期"><option value="month">本月</option><option value="year">本年</option><option value="total">累计</option></select>
-            <input class="search-input" id="searchInput" placeholder="搜索节点名称、机构编号" aria-label="搜索节点" />
+            <input class="search-input" id="searchInput" placeholder="搜索节点名称、学校编号" aria-label="搜索节点" />
           </div>
         </div>
 
         <div class="batch-bar" id="batchBar" hidden>
-          <div>已选择 <strong id="batchCount">0</strong> 家机构</div>
+          <div>已选择 <strong id="batchCount">0</strong> 所学校</div>
           <div class="batch-actions"><button class="ant-btn ant-btn-text" id="clearSelection">取消选择</button><button class="ant-btn" id="batchSummaryButton">查看所选汇总</button><button class="ant-btn ant-btn-primary" id="batchAdjustButton">批量调整归属</button></div>
         </div>
 
@@ -1533,10 +1541,10 @@
           <section class="table-panel">
             <div class="table-wrap">
               <table>
-                <thead><tr><th><input type="checkbox" id="selectAll" aria-label="选择当前列表全部机构" /></th><th>机构</th><th>关系</th><th class="numeric">在读学员</th><th class="numeric" id="feeColumn">本月净收费</th><th class="numeric" id="lessonColumn">本月课消</th><th>操作</th></tr></thead>
+                <thead><tr><th><input type="checkbox" id="selectAll" aria-label="选择当前列表全部学校" /></th><th>学校</th><th>关系</th><th class="numeric">在读学员</th><th class="numeric" id="feeColumn">本月净收费</th><th class="numeric" id="lessonColumn">本月课消</th><th>操作</th></tr></thead>
               <tbody id="institutionRows"></tbody>
               </table>
-              <div class="empty-state" id="emptyState" hidden>当前范围内没有匹配的机构</div>
+              <div class="empty-state" id="emptyState" hidden>当前范围内没有匹配的学校</div>
               <div class="list-pagination" id="listPagination"><span class="pagination-info" id="paginationInfo"></span><div class="batch-actions"><button type="button" class="ant-btn" id="previousPage">上一页</button><button type="button" class="ant-btn" id="nextPage">下一页</button></div></div>
             </div>
           </section>
@@ -1591,8 +1599,8 @@
 
   <div class="modal-mask" id="institutionDetailModal" hidden>
     <section class="modal modal-wide" role="dialog" aria-modal="true" aria-labelledby="institutionDetailTitle">
-      <div class="modal-header institution-detail-header"><div><h2 class="modal-title" id="institutionDetailTitle"></h2><div class="modal-subtitle" id="institutionDetailCode"></div></div><div class="institution-detail-actions"><button class="ant-btn" id="detailAction">调整归属</button><details class="scope-actions-more" id="detailActionsMore" hidden><summary class="ant-btn detail-more-button" aria-label="更多操作" title="更多操作"><i data-lucide="ellipsis" aria-hidden="true"></i></summary><div class="scope-actions-menu"><button class="ant-btn" id="toggleHeadquartersTagButton">设为总部机构</button><button class="ant-btn" id="createChannelFromInstitutionButton" hidden>为此机构创建渠道</button><button class="ant-btn ant-btn-danger" id="releaseFranchiseButton" hidden>解除加盟关系</button></div></details><button class="modal-close" data-close="institutionDetailModal" aria-label="关闭"><i data-lucide="x" aria-hidden="true"></i></button></div></div>
-      <div class="detail-tabs"><div class="detail-tab-list" role="tablist" aria-label="机构信息视图"><button type="button" class="detail-tab active" id="detailOperationsTab" role="tab" aria-selected="true">运营数据</button><button type="button" class="detail-tab" id="detailInfoTab" role="tab" aria-selected="false">机构详情</button></div><div class="detail-period-switch" id="detailPeriodSwitch" role="group" aria-label="机构运营统计周期"><button type="button" data-detail-period="month">本月</button><button type="button" data-detail-period="year">本年</button><button type="button" data-detail-period="total">累计</button></div></div>
+      <div class="modal-header institution-detail-header"><div><h2 class="modal-title" id="institutionDetailTitle"></h2><div class="modal-subtitle" id="institutionDetailCode"></div></div><div class="institution-detail-actions"><button class="ant-btn" id="detailAction">调整归属</button><details class="scope-actions-more" id="detailActionsMore" hidden><summary class="ant-btn detail-more-button" aria-label="更多操作" title="更多操作"><i data-lucide="ellipsis" aria-hidden="true"></i></summary><div class="scope-actions-menu"><button class="ant-btn" id="toggleHeadquartersTagButton">设为总部学校</button><button class="ant-btn" id="createChannelFromInstitutionButton" hidden>为此学校创建渠道</button><button class="ant-btn ant-btn-danger" id="releaseFranchiseButton" hidden>解除加盟关系</button></div></details><button class="modal-close" data-close="institutionDetailModal" aria-label="关闭"><i data-lucide="x" aria-hidden="true"></i></button></div></div>
+      <div class="detail-tabs"><div class="detail-tab-list" role="tablist" aria-label="学校信息视图"><button type="button" class="detail-tab active" id="detailOperationsTab" role="tab" aria-selected="true">运营数据</button><button type="button" class="detail-tab" id="detailInfoTab" role="tab" aria-selected="false">学校详情</button></div><div class="detail-period-switch" id="detailPeriodSwitch" role="group" aria-label="学校运营统计周期"><button type="button" data-detail-period="month">本月</button><button type="button" data-detail-period="year">本年</button><button type="button" data-detail-period="total">累计</button></div></div>
       <div class="detail-operations" id="detailOperations"></div>
       <div class="modal-body" id="detailBody"></div>
     </section>
@@ -1621,7 +1629,7 @@
             <li>机构原有经营数据和套餐信息保留不变</li>
           </ul>
         </div>
-        <div class="form-row"><div class="form-label required franchise-institution-label">选择要加入的机构</div><div><div class="franchise-choice-list" id="franchiseFirstSchool" role="group" aria-label="选择要加入的机构"></div><div class="franchise-selection-summary" id="franchiseSelectionSummary">尚未选择机构</div><div class="form-help">可多选已注册并进入平台、尚未归属渠道的机构；不会新建机构</div></div></div>
+        <div class="form-row"><div class="form-label required franchise-institution-label">选择要加入的学校</div><div><div class="franchise-choice-list" id="franchiseFirstSchool" role="group" aria-label="选择要加入的学校"></div><div class="franchise-selection-summary" id="franchiseSelectionSummary">尚未选择学校</div><div class="form-help">可多选已注册并进入平台、尚未归属渠道的学校；不会新建学校</div></div></div>
       </div>
       <div class="modal-footer"><button class="ant-btn" data-close="franchiseModal">取消</button><button class="ant-btn ant-btn-primary" id="confirmFranchise">确认添加加盟机构</button></div>
     </section>
@@ -1741,23 +1749,24 @@
       platform: { label: "平台", symbol: "校", className: "symbol-platform" },
       group: { label: "集团", symbol: "集", className: "symbol-group" },
       channel: { label: "渠道", symbol: "渠", className: "symbol-channel" },
-      institution: { label: "机构", symbol: "机", className: "symbol-institution" },
+      institution: { label: "学校", symbol: "校", className: "symbol-institution" },
       campus: { label: "校区", symbol: "校", className: "symbol-campus" }
     };
     const nodeTypeLabel = (node) => {
       if (node.channelKind === "master") return "渠道";
       if (node.type === "channel") return node.channelKind === "franchise" ? "加盟渠道" : "渠道";
-      if (node.type === "institution" && node.role === "hq") return "总部机构";
+      if (node.type === "institution" && node.role === "hq") return "总部学校";
       return nodeTypes[node.type].label;
     };
     const nodeSymbol = (node) => (node.type === "institution" && node.role === "hq" ? "总" : node.channelKind === "master" ? nodeTypes.channel.symbol : nodeTypes[node.type].symbol);
+    const nodeSymbolContent = (node) => node.type === "platform" ? '<i data-lucide="blocks" aria-hidden="true"></i>' : nodeSymbol(node);
     const nodeSymbolClass = (node) => (node.type === "institution" && node.role === "hq" ? "symbol-hq" : node.channelKind === "master" ? nodeTypes.channel.className : nodeTypes[node.type].className);
     const isChannelNode = (node) => Boolean(node && (node.type === "channel" || node.channelKind === "master"));
     const isRegisteredInstitution = (node) => node.type === "institution" && node.source === "registration" && node.code && node.packageName;
 
     const nodes = [
       { id: "root", parentId: null, name: "校猩猩平台", type: "platform" },
-      { id: "py", parentId: "root", name: "朋阳教育集团", type: "group", channelKind: "master" },
+      { id: "py", parentId: "root", name: "朋阳教育集团", type: "channel", channelKind: "master" },
       { id: "py-hq", parentId: "py", name: "朋阳本部直营机构", type: "institution", role: "hq", relation: "本部直营", code: "JG-10001", createdAt: "2025-06-01", joinedAt: "2025-06-01", packageName: "正式版", expiresAt: "2029-07-18", students: 1860, feeMonth: 1286000, feeYear: 11420000, feeTotal: 38600000, lessonMonth: 942000, lessonYear: 8620000, lessonTotal: 29100000, lessonHoursMonth: 6830 },
       { id: "py-1", parentId: "py", name: "朋阳直营机构一校", type: "institution", relation: "直营", code: "JG-10002", createdAt: "2025-08-12", joinedAt: "2025-09-01", packageName: "正式版", expiresAt: "2029-08-12", students: 1260, feeMonth: 896000, feeYear: 7820000, feeTotal: 24200000, lessonMonth: 671000, lessonYear: 5880000, lessonTotal: 18100000, lessonHoursMonth: 4920 },
       { id: "py-2", parentId: "py", name: "朋阳直营机构二校", type: "institution", relation: "直营", code: "JG-10003", createdAt: "2026-01-18", joinedAt: "2026-02-01", packageName: "正式版", expiresAt: "2030-02-01", students: 980, feeMonth: 728000, feeYear: 6360000, feeTotal: 19800000, lessonMonth: 536000, lessonYear: 4720000, lessonTotal: 14700000, lessonHoursMonth: 3810 },
@@ -1935,7 +1944,7 @@
       channels: {
         title: "渠道管理", description: "管理渠道主体、客户机构、业绩与合作状态",
         metrics: [["合作渠道", "12", "10 家正常合作"], ["渠道机构", "86", "占平台机构 17.2%"], ["本月新增", "14", "较上月增加 5 家"], ["渠道贡献收费", "¥386 万", "按下属机构汇总"]],
-        mainTitle: "渠道经营", mainNote: "渠道节点必须至少关联一家经营机构", columns: ["渠道", "覆盖机构", "本月净收费", "状态"],
+        mainTitle: "渠道经营", mainNote: "渠道节点必须至少关联一所学校", columns: ["渠道", "覆盖学校", "本月净收费", "状态"],
         rows: [
           { title: "华北渠道公司", meta: "直营网点 0 · 渠道客户 2", values: ["2 家", "¥84.2 万"], status: "合作中", tone: "success" },
           { title: "朋阳华南渠道公司", meta: "朋阳教育集团下属渠道", values: ["2 家", "¥111.8 万"], status: "合作中", tone: "success" },
@@ -1971,16 +1980,16 @@
     };
 
     const permissionUsers = [
-      { id: "chen", name: "陈老师", phone: "138****8000", role: "平台管理员", institution: "校猩猩平台", functions: ["dashboard", "relations", "org-edit", "orders", "courses", "audit", "export"], nodes: ["root"], data: { students: "detail", finance: "detail", lessons: "detail", contacts: "detail" } },
-      { id: "li", name: "李老师", phone: "139****2686", role: "集团管理员", institution: "朋阳教育集团", functions: ["dashboard", "relations", "org-edit", "courses", "export"], nodes: ["py"], data: { students: "detail", finance: "detail", lessons: "detail", contacts: "summary" } },
-      { id: "wang", name: "王老师", phone: "136****5192", role: "渠道管理员", institution: "华北渠道公司", functions: ["dashboard", "relations", "orders"], nodes: ["north-channel"], data: { students: "summary", finance: "summary", lessons: "summary", contacts: "hidden" } },
-      { id: "zhou", name: "周老师", phone: "135****7421", role: "校区负责人", institution: "朋阳本部直营机构 · 滨江校区", functions: ["dashboard", "relations"], nodes: ["campus-py-hq-2"], data: { students: "detail", finance: "summary", lessons: "summary", contacts: "detail" } }
+      { id: "chen", name: "陈老师", phone: "138****8000", role: "平台管理员", institution: "校猩猩平台", functions: ["dashboard", "relations", "org-edit", "orders", "courses", "audit", "export"], nodes: ["root"], biReports: [] },
+      { id: "li", name: "李老师", phone: "139****2686", role: "集团管理员", institution: "朋阳教育集团", functions: ["dashboard", "relations", "org-edit", "courses", "export"], nodes: ["py"], biReports: [{ id: "group-overview", name: "集团经营总览", url: "https://bi.example.com/report/group-overview" }, { id: "enrollment-analysis", name: "招生转化分析", url: "https://bi.example.com/report/enrollment-analysis" }] },
+      { id: "wang", name: "王老师", phone: "136****5192", role: "渠道管理员", institution: "华北渠道公司", functions: ["dashboard", "relations", "orders"], nodes: ["north-channel"], biReports: [] },
+      { id: "zhou", name: "周老师", phone: "135****7421", role: "校区负责人", institution: "朋阳本部直营机构 · 滨江校区", functions: ["dashboard", "relations"], nodes: ["py-hq"], biReports: [] }
     ];
     const permissionAccounts = [
       { id: "chen", phone: "13800138000", name: "陈老师", role: "平台管理员", institution: "校猩猩平台", nodeId: "root" },
       { id: "li", phone: "13900002686", name: "李老师", role: "集团管理员", institution: "朋阳教育集团", nodeId: "py" },
       { id: "wang", phone: "13600005192", name: "王老师", role: "渠道管理员", institution: "华北渠道公司", nodeId: "north-channel" },
-      { id: "zhou", phone: "13500007421", name: "周老师", role: "校区负责人", institution: "朋阳本部直营机构 · 滨江校区", nodeId: "campus-py-hq-2" },
+      { id: "zhou", phone: "13500007421", name: "周老师", role: "校区负责人", institution: "朋阳本部直营机构 · 滨江校区", nodeId: "py-hq" },
       { id: "zhao", phone: "13700001234", name: "赵老师", role: "机构管理员", institution: "阳光成长中心（深圳）", nodeId: "sun" }
     ];
     const permissionStorageKey = "xiaozhang-permissions";
@@ -1994,6 +2003,14 @@
     } catch (error) {}
     permissionUsers.forEach((user) => {
       if (!user.institution) user.institution = permissionAccounts.find((account) => account.id === user.id)?.institution || "未关联机构";
+      user.nodes = [...new Set((user.nodes || []).map((id) => {
+        const scopeNode = nodes.find((node) => node.id === id);
+        return scopeNode?.type === "campus" ? scopeNode.parentId : id;
+      }))];
+      if (typeof user.biLink === "string" && user.biLink) user.biReports = [{ id: `report-${user.id}`, name: "经营分析报表", url: user.biLink }];
+      else if (!Array.isArray(user.biReports)) user.biReports = [];
+      delete user.biLink;
+      delete user.data;
     });
     const permissionFunctionGroups = [
       ["经营查看", [["dashboard", "查看经营总览"], ["relations", "查看机构管理"], ["orders", "查看套餐订单"]]],
@@ -2002,19 +2019,12 @@
     ];
     const permissionNodeRows = [
       { id: "root", name: "校猩猩平台", depth: 0, parentId: null, type: "平台", icon: "blocks" },
-      { id: "py", name: "朋阳教育集团", depth: 1, parentId: "root", type: "集团", icon: "building-2" },
-      { id: "py-hq", name: "朋阳本部直营机构", depth: 2, parentId: "py", type: "机构", icon: "school" },
-      { id: "campus-py-hq-2", name: "滨江校区", depth: 3, parentId: "py-hq", type: "校区", icon: "map-pin" },
+      { id: "py", name: "朋阳教育集团", depth: 1, parentId: "root", type: "渠道", icon: "network" },
+      { id: "py-hq", name: "朋阳本部直营机构", depth: 2, parentId: "py", type: "学校", icon: "school" },
       { id: "py-channel", name: "朋阳华南渠道公司", depth: 2, parentId: "py", type: "渠道", icon: "network" },
-      { id: "sun", name: "阳光成长中心（深圳）", depth: 3, parentId: "py-channel", type: "机构", icon: "school" },
+      { id: "sun", name: "阳光成长中心（深圳）", depth: 3, parentId: "py-channel", type: "学校", icon: "school" },
       { id: "north-channel", name: "华北渠道公司", depth: 1, parentId: "root", type: "渠道", icon: "network" },
-      { id: "independent-a", name: "启航培训学校", depth: 1, parentId: "root", type: "机构", icon: "school" }
-    ];
-    const permissionDataRows = [
-      ["students", "学员数据", "人数、状态、报名与班级信息"],
-      ["finance", "收费数据", "净收费、订单与退款信息"],
-      ["lessons", "课消数据", "课消金额、课时与明细记录"],
-      ["contacts", "敏感信息", "手机号、联系人和地址"]
+      { id: "independent-a", name: "启航培训学校", depth: 1, parentId: "root", type: "渠道", icon: "network" }
     ];
     let selectedPermissionUserId = "li";
     let selectedPermissionTab = "functions";
@@ -2140,8 +2150,8 @@
       const node = byId(state.pendingTreeNodeId);
       if (!node) return;
       const directScope = state.pendingDirectScopeParentId === node.id;
-      document.getElementById("mobileTreePendingName").textContent = directScope ? "直属单体机构" : node.name;
-      document.getElementById("mobileTreePendingPath").textContent = directScope ? `${visiblePathText(node.id)} > 直属单体机构` : node.parentId ? visiblePathText(node.id) : `${node.name} · 全部客户范围`;
+      document.getElementById("mobileTreePendingName").textContent = directScope ? "直属学校" : node.name;
+      document.getElementById("mobileTreePendingPath").textContent = directScope ? `${visiblePathText(node.id)} > 直属学校` : node.parentId ? visiblePathText(node.id) : `${node.name} · 全部客户范围`;
     }
 
     function positionMobileTreeSelection() {
@@ -2193,7 +2203,7 @@
       const selectedDirectParentId = state.mobileTreeSelecting ? state.pendingDirectScopeParentId : state.directScopeParentId;
 
       const renderNode = (node, depth) => {
-        const children = childrenOf(node.id);
+        const children = childrenOf(node.id).filter((child) => child.type !== "campus");
         const directInstitutions = children.filter(isLeafInstitution);
         const groupDirectInstitutions = directInstitutions.length > 20;
         const visibleChildren = groupDirectInstitutions ? children.filter((child) => !directInstitutions.includes(child)) : children;
@@ -2222,7 +2232,7 @@
         select.className = "tree-select";
         const campusCount = campusesOf(node.id).length;
         const countText = node.type === "campus" ? `${formatNumber(node.students)} 人` : node.type === "institution" && campusCount ? `${campusCount} 校区` : institutionsUnder(node.id).length;
-        select.innerHTML = `<span class="node-symbol ${nodeSymbolClass(node)}">${nodeSymbol(node)}</span><span class="node-name"></span><span class="node-count">${countText}</span>`;
+        select.innerHTML = `<span class="node-symbol ${nodeSymbolClass(node)}">${nodeSymbolContent(node)}</span><span class="node-name"></span><span class="node-count">${countText}</span>`;
         select.querySelector(".node-name").textContent = node.name;
         if (node.type === "campus") select.title = `${node.address} · 负责人 ${node.manager}`;
         else select.addEventListener("click", () => selectTreeNode(node));
@@ -2235,7 +2245,7 @@
             const directRow = document.createElement("div");
             directRow.className = `tree-node${selectedDirectParentId === node.id ? " selected" : ""}`;
             directRow.style.paddingLeft = `${4 + (depth + 1) * 18}px`;
-            directRow.innerHTML = `<span class="tree-toggle placeholder"></span><button type="button" class="tree-select"><i class="scope-folder-symbol" data-lucide="folder" aria-hidden="true"></i><span class="node-name">直属单体机构</span><span class="node-count">${directInstitutions.length}</span></button>`;
+            directRow.innerHTML = `<span class="tree-toggle placeholder"></span><button type="button" class="tree-select"><i class="scope-folder-symbol" data-lucide="folder" aria-hidden="true"></i><span class="node-name">直属学校</span><span class="node-count">${directInstitutions.length}</span></button>`;
             directRow.querySelector(".tree-select").addEventListener("click", () => selectTreeNode(node, true));
             tree.appendChild(directRow);
           }
@@ -2271,7 +2281,7 @@
         const directInstitutions = children.filter(isLeafInstitution);
         const visibleChildren = directInstitutions.length <= 20 ? children : [
           ...children.filter((child) => !directInstitutions.includes(child)),
-          { id: `direct-scope:${node.id}`, parentId: node.id, directParentId: node.id, name: "直属单体机构", type: "directScope", institutions: directInstitutions }
+          { id: `direct-scope:${node.id}`, parentId: node.id, directParentId: node.id, name: "直属学校", type: "directScope", institutions: directInstitutions }
         ];
         return state.topologyCollapsedIds.has(node.id) ? [] : visibleChildren;
       };
@@ -2351,10 +2361,10 @@
           class: `topology-card${selected ? " selected" : ""}${term && !relatedIds.has(id) ? " dimmed" : ""}${term && matchingIds.has(id) ? " match" : ""}`,
           role: "button",
           tabindex: "0",
-          "aria-label": `${node.name}，${directScope ? "视图分组" : nodeTypeLabel(node)}，${institutions.length}家机构`
+          "aria-label": `${node.name}，${directScope ? "视图分组" : nodeTypeLabel(node)}，${institutions.length}所学校`
         });
         const title = createSvg("title");
-        title.textContent = directScope ? `${visiblePathText(node.directParentId)} > 直属单体机构` : visiblePathText(id);
+        title.textContent = directScope ? `${visiblePathText(node.directParentId)} > 直属学校` : visiblePathText(id);
         group.appendChild(title);
         group.appendChild(createSvg("rect", { class: "topology-card-bg", x: position.x, y: position.y, width: nodeWidth, height: nodeHeight, rx: "6" }));
         group.appendChild(createSvg("rect", { class: `topology-type-bar ${directScope ? "institution" : isChannelNode(node) ? "channel" : node.type}`, x: position.x, y: position.y + 8, width: "4", height: nodeHeight - 16, rx: "2" }));
@@ -2367,7 +2377,7 @@
         const nameLimit = isMobile() ? 11 : 14;
         const shortName = node.name.length > nameLimit ? `${node.name.slice(0, nameLimit)}…` : node.name;
         const campusCount = campusesOf(node.id).length;
-        const meta = directScope ? `视图分组 · ${institutions.length} 家机构` : node.type === "institution" ? `${node.relation}${node.role === "hq" ? " · 总部机构" : ""} · ${institutionCode(node.code)}${campusCount ? ` · ${campusCount}校区` : ""}` : `${nodeTypeLabel(node)} · ${institutions.length} 家机构`;
+        const meta = directScope ? `视图分组 · ${institutions.length} 所学校` : node.type === "institution" ? `${node.relation}${node.role === "hq" ? " · 总部学校" : ""} · ${institutionCode(node.code)}${campusCount ? ` · ${campusCount}校区` : ""}` : `${nodeTypeLabel(node)} · ${institutions.length} 所学校`;
         appendText("topology-name", position.x + 16, position.y + 22, shortName);
         appendText("topology-meta", position.x + 16, position.y + 42, meta);
         appendText("topology-value", position.x + 16, position.y + 61, `${formatNumber(sum(institutions, "students"))} 人 · ${feePeriodLabel(state.period)} ${formatCompactMoney(sum(institutions, keys.fee))}`);
@@ -2465,11 +2475,11 @@
       const node = byId(state.selectedNodeId);
       const directScope = isDirectScope();
       const scopeType = directScope ? "视图筛选" : nodeTypeLabel(node);
-      const scopeName = directScope ? "直属单体机构" : node.name;
-      const scopePath = directScope ? `${visiblePathText(node.id)} > 直属单体机构` : node.parentId ? visiblePathText(node.id) : `${node.name} · 全部客户范围`;
+      const scopeName = directScope ? "直属学校" : node.name;
+      const scopePath = directScope ? `${visiblePathText(node.id)} > 直属学校` : node.parentId ? visiblePathText(node.id) : `${node.name} · 全部客户范围`;
       const scopeSymbol = document.getElementById("metricScopeSymbol");
       scopeSymbol.className = `node-symbol metrics-scope-symbol ${directScope ? "symbol-filter" : nodeSymbolClass(node)}`;
-      scopeSymbol.textContent = directScope ? "筛" : nodeSymbol(node);
+      scopeSymbol.innerHTML = directScope ? "筛" : nodeSymbolContent(node);
       document.getElementById("metricScopeName").textContent = scopeName;
       document.getElementById("metricScopeType").textContent = scopeType;
       document.getElementById("metricScopePath").textContent = scopePath;
@@ -2478,18 +2488,18 @@
       document.getElementById("scopeSwitchButton").title = isMobile() ? "切换管理范围" : "定位到左侧组织树";
       const mobileScopeSymbol = document.getElementById("mobileScopeSymbol");
       mobileScopeSymbol.className = `node-symbol ${directScope ? "symbol-filter" : nodeSymbolClass(node)}`;
-      mobileScopeSymbol.textContent = directScope ? "筛" : nodeSymbol(node);
+      mobileScopeSymbol.innerHTML = directScope ? "筛" : nodeSymbolContent(node);
       document.getElementById("mobileScopeName").textContent = scopeName;
       document.getElementById("mobileScopePath").textContent = scopePath;
       document.getElementById("metricInstitutionLabel").textContent = directScope
-        ? "直属单体机构"
-        : node.type === "platform" ? "全平台机构"
-          : node.type === "channel" ? "覆盖机构"
-            : node.type === "institution" && institutions.length === 1 ? "本机构" : "管理机构";
+        ? "直属学校"
+        : node.type === "platform" ? "全平台学校"
+          : node.type === "channel" ? "覆盖学校"
+            : node.type === "institution" && institutions.length === 1 ? "本学校" : "管理学校";
       document.getElementById("metricInstitutionNote").textContent = directScope
         ? `直属上级为${node.name}且没有下级`
-        : node.type === "institution" && institutions.length === 1 ? "当前经营机构"
-          : node.type === "institution" ? "含本机构及下属机构" : "当前节点全部后代机构";
+        : node.type === "institution" && institutions.length === 1 ? "当前经营学校"
+          : node.type === "institution" ? "含本学校及下属学校" : "当前节点全部后代学校";
       document.getElementById("metricInstitutions").textContent = formatNumber(institutions.length);
       document.getElementById("metricStudents").textContent = formatNumber(sum(institutions, "students"));
       const fee = sum(institutions, keys.fee);
@@ -2512,6 +2522,7 @@
         renderMetrics.animationTimer = setTimeout(() => panel.classList.remove("scope-refresh"), 200);
       }
       state.renderedMetricScopeKey = metricScopeKey;
+      if (window.lucide) window.lucide.createIcons({ attrs: { "stroke-width": 1.8 } });
     }
 
     function renderTable() {
@@ -2525,9 +2536,9 @@
       document.getElementById("lessonColumn").textContent = `${periodNames[state.period]}课消`;
 
       const totalPages = Math.max(1, Math.ceil(fullList.length / state.pageSize));
-      document.getElementById("listCount").textContent = `${formatNumber(fullList.length)} 家`;
+      document.getElementById("listCount").textContent = `${formatNumber(fullList.length)} 所`;
       document.getElementById("listPagination").hidden = fullList.length === 0;
-      document.getElementById("paginationInfo").textContent = `第 ${state.page} / ${totalPages} 页 · 共 ${formatNumber(fullList.length)} 家`;
+      document.getElementById("paginationInfo").textContent = `第 ${state.page} / ${totalPages} 页 · 共 ${formatNumber(fullList.length)} 所`;
       document.getElementById("previousPage").disabled = state.page <= 1;
       document.getElementById("nextPage").disabled = state.page >= totalPages;
 
@@ -2535,7 +2546,7 @@
         const tr = document.createElement("tr");
         if (state.selectedInstitutionId === institution.id) tr.classList.add("current");
         if (state.recentlyAddedIds.has(institution.id)) tr.classList.add("recently-added");
-        tr.innerHTML = `<td><input type="checkbox" aria-label="选择机构" /></td><td><div class="institution-name"></div><div class="institution-meta"></div></td><td><div class="relation-tags"><span class="relation-tag"></span></div></td><td class="numeric"></td><td class="numeric"></td><td class="numeric"></td><td><button class="ant-btn ant-btn-text">调整</button></td>`;
+        tr.innerHTML = `<td><input type="checkbox" aria-label="选择学校" /></td><td><div class="institution-name"></div><div class="institution-meta"></div></td><td><div class="relation-tags"><span class="relation-tag"></span></div></td><td class="numeric"></td><td class="numeric"></td><td class="numeric"></td><td><button class="ant-btn ant-btn-text">调整</button></td>`;
         tr.querySelector(".institution-name").textContent = institution.name;
         const institutionMeta = tr.querySelector(".institution-meta");
         const campusCount = campusesOf(institution.id).length;
@@ -2546,7 +2557,7 @@
         if (institution.role === "hq") {
           const hqTag = document.createElement("span");
           hqTag.className = "relation-tag hq-tag";
-          hqTag.textContent = "总部机构";
+          hqTag.textContent = "总部学校";
           relationCell.appendChild(hqTag);
         }
         if (institution.onlinePayment) {
@@ -2624,11 +2635,11 @@
       const campusStudentTotal = sum(campuses, "students");
       const campusShareValue = (campus, key) => campusStudentTotal ? Math.round(Number(node[key] || 0) * campus.students / campusStudentTotal) : 0;
       const campusBusinessSection = campuses.length > 1 ? `<div class="detail-section"><div class="detail-section-title">校区经营 · ${periodNames[state.period]}</div><div class="campus-business-head"><span>校区</span><span class="numeric">在读学员</span><span class="numeric">${feePeriodLabel(state.period)}</span><span class="numeric">${periodNames[state.period]}课消</span></div>${campuses.map((campus) => `<div class="campus-business-row"><div class="campus-business-name">${escapeHtml(campus.name)}<div class="campus-business-meta">${escapeHtml(campus.manager)} · ${escapeHtml(campus.address)}</div></div><div class="campus-business-value" data-label="在读学员">${formatNumber(campus.students)} 人</div><div class="campus-business-value" data-label="${feePeriodLabel(state.period)}">${formatMoney(campusShareValue(campus, keys.fee))}</div><div class="campus-business-value" data-label="${periodNames[state.period]}课消">${formatMoney(campusShareValue(campus, keys.lesson))}</div></div>`).join("")}</div>` : "";
-      operations.innerHTML = `<div class="detail-section"><div class="detail-section-title">${periodNames[state.period]}关键指标 · 含下属机构</div><div class="detail-kpis detail-kpis-compact"><div class="detail-kpi"><div class="detail-kpi-label">在读学员</div><div class="detail-kpi-value">${formatNumber(students)}</div></div><div class="detail-kpi"><div class="detail-kpi-label">${feePeriodLabel(state.period)}</div><div class="detail-kpi-value">${formatMoney(fee)}</div></div><div class="detail-kpi"><div class="detail-kpi-label">${periodNames[state.period]}课消</div><div class="detail-kpi-value">${formatMoney(lesson)}</div></div><div class="detail-kpi"><div class="detail-kpi-label">${periodNames[state.period]}课时</div><div class="detail-kpi-value">${hours === null ? "—" : formatNumber(hours)}</div></div></div></div>${campusBusinessSection}<div class="detail-section detail-workspace-section"><div class="detail-section-title">机构业务入口</div><div class="workspace-module-grid" aria-label="机构业务模块"><button type="button" class="workspace-module" data-workspace-module="学员档案"><i data-lucide="users" aria-hidden="true"></i><span>学员档案</span></button><button type="button" class="workspace-module" data-workspace-module="收费订单"><i data-lucide="wallet-cards" aria-hidden="true"></i><span>收费订单</span></button><button type="button" class="workspace-module" data-workspace-module="课程班级"><i data-lucide="book-open" aria-hidden="true"></i><span>课程班级</span></button><button type="button" class="workspace-module" data-workspace-module="排课课消"><i data-lucide="calendar-days" aria-hidden="true"></i><span>排课课消</span></button><button type="button" class="workspace-module" data-workspace-module="员工权限"><i data-lucide="user-cog" aria-hidden="true"></i><span>员工权限</span></button><button type="button" class="workspace-module" data-workspace-module="经营报表"><i data-lucide="chart-no-axes-combined" aria-hidden="true"></i><span>经营报表</span></button></div></div>`;
+      operations.innerHTML = `<div class="detail-section"><div class="detail-section-title">${periodNames[state.period]}关键指标 · 含下属学校</div><div class="detail-kpis detail-kpis-compact"><div class="detail-kpi"><div class="detail-kpi-label">在读学员</div><div class="detail-kpi-value">${formatNumber(students)}</div></div><div class="detail-kpi"><div class="detail-kpi-label">${feePeriodLabel(state.period)}</div><div class="detail-kpi-value">${formatMoney(fee)}</div></div><div class="detail-kpi"><div class="detail-kpi-label">${periodNames[state.period]}课消</div><div class="detail-kpi-value">${formatMoney(lesson)}</div></div><div class="detail-kpi"><div class="detail-kpi-label">${periodNames[state.period]}课时</div><div class="detail-kpi-value">${hours === null ? "—" : formatNumber(hours)}</div></div></div></div>${campusBusinessSection}<div class="detail-section detail-workspace-section"><div class="detail-section-title">学校业务入口</div><div class="workspace-module-grid" aria-label="学校业务模块"><button type="button" class="workspace-module" data-workspace-module="学员档案"><i data-lucide="users" aria-hidden="true"></i><span>学员档案</span></button><button type="button" class="workspace-module" data-workspace-module="收费订单"><i data-lucide="wallet-cards" aria-hidden="true"></i><span>收费订单</span></button><button type="button" class="workspace-module" data-workspace-module="课程班级"><i data-lucide="book-open" aria-hidden="true"></i><span>课程班级</span></button><button type="button" class="workspace-module" data-workspace-module="排课课消"><i data-lucide="calendar-days" aria-hidden="true"></i><span>排课课消</span></button><button type="button" class="workspace-module" data-workspace-module="员工权限"><i data-lucide="user-cog" aria-hidden="true"></i><span>员工权限</span></button><button type="button" class="workspace-module" data-workspace-module="经营报表"><i data-lucide="chart-no-axes-combined" aria-hidden="true"></i><span>经营报表</span></button></div></div>`;
       operations.querySelectorAll("[data-workspace-module]").forEach((button) => button.addEventListener("click", () => showToast(`已进入${button.dataset.workspaceModule}`)));
       if (window.lucide) window.lucide.createIcons({ attrs: { "stroke-width": 1.8 } });
       const campusSection = campuses.length ? `<div class="detail-section"><div class="detail-section-title">校区结构 · ${campuses.length} 个</div>${campuses.map((campus) => `<div class="campus-row"><div class="campus-row-name">${escapeHtml(campus.name)}</div><div class="campus-row-meta">${escapeHtml(campus.address)} · ${escapeHtml(campus.manager)}</div><div class="campus-row-value">${formatNumber(campus.students)} 人</div></div>`).join("")}</div>` : "";
-      body.innerHTML = `<h2 class="detail-title"></h2><div class="institution-meta" data-code></div><div class="detail-tags"><span class="relation-tag" data-type></span>${node.role === "hq" ? '<span class="relation-tag hq-tag">总部机构</span>' : ""}${node.onlinePayment ? '<span class="relation-tag pay-tag">线上收款已开通</span>' : ""}<span class="status-tag"><i></i>运行中</span></div><div class="detail-section"><div class="detail-section-title">归属与权限</div><div class="detail-row"><div class="detail-label">创建时间</div><div class="detail-content" data-created></div></div><div class="detail-row"><div class="detail-label">归属路径</div><div class="detail-content" data-path></div></div><div class="detail-row"><div class="detail-label">直属上级</div><div class="detail-content" data-parent></div></div><div class="detail-row"><div class="detail-label">加入时间</div><div class="detail-content" data-joined></div></div><div class="detail-row"><div class="detail-label">线上收款</div><div class="detail-content" data-payment></div></div><div class="detail-row"><div class="detail-label">数据范围</div><div class="detail-content" data-scope></div></div><div class="detail-row"><div class="detail-label">管理权限</div><div class="detail-content" data-permission></div></div></div>${campusSection}<div class="detail-section"><div class="detail-section-title">套餐与续费</div><div data-package></div></div><div class="detail-section"><div class="detail-section-title">最近审计</div><div data-audit></div></div>`;
+      body.innerHTML = `<h2 class="detail-title"></h2><div class="institution-meta" data-code></div><div class="detail-tags"><span class="relation-tag" data-type></span>${node.role === "hq" ? '<span class="relation-tag hq-tag">总部学校</span>' : ""}${node.onlinePayment ? '<span class="relation-tag pay-tag">线上收款已开通</span>' : ""}<span class="status-tag"><i></i>运行中</span></div><div class="detail-section"><div class="detail-section-title">归属与权限</div><div class="detail-row"><div class="detail-label">创建时间</div><div class="detail-content" data-created></div></div><div class="detail-row"><div class="detail-label">归属路径</div><div class="detail-content" data-path></div></div><div class="detail-row"><div class="detail-label">直属上级</div><div class="detail-content" data-parent></div></div><div class="detail-row"><div class="detail-label">加入时间</div><div class="detail-content" data-joined></div></div><div class="detail-row"><div class="detail-label">线上收款</div><div class="detail-content" data-payment></div></div><div class="detail-row"><div class="detail-label">数据范围</div><div class="detail-content" data-scope></div></div><div class="detail-row"><div class="detail-label">管理权限</div><div class="detail-content" data-permission></div></div></div>${campusSection}<div class="detail-section"><div class="detail-section-title">套餐与续费</div><div data-package></div></div><div class="detail-section"><div class="detail-section-title">最近审计</div><div data-audit></div></div>`;
       body.querySelector(".detail-title").textContent = node.name;
       body.querySelector("[data-code]").textContent = institutionCode(node.code);
       body.querySelector("[data-type]").textContent = node.relation;
@@ -2639,8 +2650,8 @@
       body.querySelector("[data-joined]").textContent = node.joinedAt ? `${node.joinedAt} · 加入${joinedParentName}` : "—";
       body.querySelector("[data-payment]").innerHTML = node.onlinePayment ? '<span class="concept-status success">已开通</span>' : '<span class="concept-status">未开通</span>';
       const childInstitutionCount = Math.max(0, institutions.length - 1);
-      body.querySelector("[data-scope]").textContent = childInstitutionCount > 0 ? `本机构及 ${childInstitutionCount} 家下属机构` : campuses.length ? `本机构及 ${campuses.length} 个校区` : "仅本机构";
-      body.querySelector("[data-permission]").textContent = node.role === "hq" ? "总部机构：管理本机构业务，查看下属经营汇总，下发课程与制度" : node.canManageChildren ? "管理本机构业务，查看下属经营数据并下发课程和任务" : "管理本机构业务数据";
+      body.querySelector("[data-scope]").textContent = childInstitutionCount > 0 ? `本学校及 ${childInstitutionCount} 所下属学校` : campuses.length ? `本学校及 ${campuses.length} 个校区` : "仅本学校";
+      body.querySelector("[data-permission]").textContent = node.role === "hq" ? "总部学校：管理本学校业务，查看下属经营汇总，下发课程与制度" : node.canManageChildren ? "管理本学校业务，查看下属经营数据并下发课程和任务" : "管理本学校业务数据";
       const trialDaysLeft = node.packageName === "试用版" && node.expiresAt ? Math.ceil((new Date(`${node.expiresAt}T00:00:00Z`) - new Date("2026-08-20T00:00:00Z")) / 86400000) : null;
       const pkgStatus = !node.expiresAt ? { label: "—", tone: "" } : node.packageName === "试用版"
         ? (trialDaysLeft >= 0 ? { label: trialDaysLeft > 0 ? `试用中（剩 ${trialDaysLeft} 天）` : "试用中（今日到期）", tone: "active" } : { label: "试用已结束，待转正式", tone: "warning" })
@@ -2654,7 +2665,7 @@
       document.getElementById("institutionDetailCode").textContent = `${institutionCode(node.code)} · ${visiblePathText(node.id)}`;
       document.getElementById("createChannelFromInstitutionButton").hidden = node.type !== "institution";
       document.getElementById("releaseFranchiseButton").hidden = !(node.relation === "加盟" && byId(node.parentId)?.type === "channel");
-      document.getElementById("toggleHeadquartersTagButton").textContent = node.role === "hq" ? "取消总部机构" : "设为总部机构";
+      document.getElementById("toggleHeadquartersTagButton").textContent = node.role === "hq" ? "取消总部学校" : "设为总部学校";
       document.getElementById("detailActionsMore").hidden = false;
       if (document.getElementById("detailActionsMore").hidden) document.getElementById("detailActionsMore").open = false;
       document.querySelectorAll("[data-detail-period]").forEach((button) => {
@@ -2681,7 +2692,7 @@
       state.suppressDetailOnce = keepDetailClosed;
       renderAll();
       state.suppressDetailOnce = false;
-      showToast(removing ? `已取消“${institution.name}”的总部机构标签` : `已将“${institution.name}”设为唯一总部机构`);
+      showToast(removing ? `已取消“${institution.name}”的总部学校标签` : `已将“${institution.name}”设为唯一总部学校`);
     }
 
     function renderScope() {
@@ -2705,7 +2716,7 @@
       document.getElementById("franchiseScopeButton").hidden = !channelActions;
       const scopeHeadquartersButton = document.getElementById("toggleScopeHeadquartersTagButton");
       scopeHeadquartersButton.hidden = isDirectScope() || scopeNode.type !== "institution";
-      scopeHeadquartersButton.textContent = scopeNode.role === "hq" ? "取消总部机构" : "设为总部机构";
+      scopeHeadquartersButton.textContent = scopeNode.role === "hq" ? "取消总部学校" : "设为总部学校";
       const mobileActions = document.querySelectorAll("[data-mobile-scope-action]");
       mobileActions.forEach((button) => {
         const target = document.getElementById(button.dataset.mobileScopeAction);
@@ -2870,8 +2881,8 @@
         const tr = document.createElement("tr");
         const change = changes[index % changes.length];
         tr.innerHTML = `<td><div class="institution-name"></div><div class="node-type-text"></div></td><td class="numeric"></td><td class="numeric"></td><td class="numeric"></td><td class="numeric"></td><td class="numeric"><span class="${change >= 0 ? "change-up" : "change-down"}">${change >= 0 ? "+" : ""}${change.toFixed(1)}%</span></td>`;
-        tr.querySelector(".institution-name").textContent = node ? node.name : "直属单体机构";
-        tr.querySelector(".node-type-text").textContent = node ? `${nodeTypeLabel(node)} · 点击查看` : "视图分组 · 点击进入机构列表";
+        tr.querySelector(".institution-name").textContent = node ? node.name : "直属学校";
+        tr.querySelector(".node-type-text").textContent = node ? `${nodeTypeLabel(node)} · 点击查看` : "视图分组 · 点击进入学校列表";
         const cells = tr.querySelectorAll(".numeric");
         cells[0].textContent = formatNumber(institutions.length);
         cells[1].textContent = formatNumber(sum(institutions, "students"));
@@ -3071,7 +3082,7 @@
     function renderWorkspaceOptions() {
       const select = document.querySelector(".workspace-switch");
       const firstLevelChannels = childrenOf("root").filter((node) => isChannelNode(node));
-      select.innerHTML = `<option value="platform">校猩猩平台视角</option>${firstLevelChannels.map((node) => `<option value="${node.id}">${node.name}视角</option>`).join("")}<option value="direct-root">直属单体机构视角</option>`;
+      select.innerHTML = `<option value="platform">校猩猩平台视角</option>${firstLevelChannels.map((node) => `<option value="${node.id}">${node.name}视角</option>`).join("")}<option value="direct-root">直属学校视角</option>`;
       select.value = "platform";
     }
 
@@ -3328,7 +3339,7 @@
       const account = matchedPermissionAccount;
       if (!account || permissionUsers.some((user) => user.id === account.id)) return;
       permissionPreviousUserId = selectedPermissionUserId;
-      permissionUsers.push({ id: account.id, name: account.name, phone: account.phone.replace(/^(\d{3})\d{4}(\d{4})$/, "$1****$2"), role: account.role, institution: account.institution, functions: [], nodes: [account.nodeId], data: { students: "hidden", finance: "hidden", lessons: "hidden", contacts: "hidden" } });
+      permissionUsers.push({ id: account.id, name: account.name, phone: account.phone.replace(/^(\d{3})\d{4}(\d{4})$/, "$1****$2"), role: account.role, institution: account.institution, functions: [], nodes: [account.nodeId], biReports: [] });
       selectedPermissionUserId = account.id;
       selectedPermissionTab = "functions";
       permissionEditing = true;
@@ -3374,7 +3385,7 @@
       const nodeSummary = user.nodes.length ? user.nodes.map((id) => `${permissionNodeName(id)}${id.includes("campus") ? "" : "及下级"}`).join("、") : "未授权组织范围";
       document.getElementById("permissionPersonName").textContent = `${user.name} · ${user.role}`;
       document.getElementById("permissionPersonInstitution").innerHTML = `所属机构：${user.institution}<span class="permission-person-source">来自系统账号</span>`;
-      document.getElementById("permissionSummary").textContent = `${user.functions.length} 项功能 · ${nodeSummary} · 数据按类别授权`;
+      document.getElementById("permissionSummary").textContent = `${user.functions.length} 项功能 · ${nodeSummary} · BI 报表 ${user.biReports.length} 张`;
       document.querySelector(".permission-main").classList.toggle("is-editing", permissionEditing);
       document.getElementById("permissionMode").textContent = permissionEditing ? "编辑中" : "查看中";
       document.getElementById("permissionMode").classList.toggle("editing", permissionEditing);
@@ -3390,11 +3401,14 @@
       });
       const content = document.getElementById("permissionContent");
       if (selectedPermissionTab === "functions") {
-        content.innerHTML = `<div class="permission-tip"><i class="permission-tip-icon" data-lucide="info" aria-hidden="true"></i>功能权限决定此人可以进入哪些模块、执行哪些操作；实际数据仍受组织范围和数据权限限制。</div><div class="permission-groups">${permissionFunctionGroups.map(([title, items]) => `<section class="permission-group"><div class="permission-group-title">${title}</div>${items.map(([id, label]) => { const granted = user.functions.includes(id); return permissionEditing ? `<label class="permission-check"><input type="checkbox" data-permission-function="${id}" ${granted ? "checked" : ""} />${label}</label>` : `<div class="permission-check"><span class="permission-read-icon ${granted ? "granted" : ""}"><i data-lucide="${granted ? "check" : "minus"}" aria-hidden="true"></i></span><span>${label}</span><span class="permission-read-status">${granted ? "已授权" : "未授权"}</span></div>`; }).join("")}</section>`).join("")}</div>`;
+        content.innerHTML = `<div class="permission-tip"><i class="permission-tip-icon" data-lucide="info" aria-hidden="true"></i>功能权限决定此人可以进入哪些模块、执行哪些操作；实际可管理范围由组织授权决定，经营报表通过 BI 入口查看。</div><div class="permission-groups">${permissionFunctionGroups.map(([title, items]) => `<section class="permission-group"><div class="permission-group-title">${title}</div>${items.map(([id, label]) => { const granted = user.functions.includes(id); return permissionEditing ? `<label class="permission-check"><input type="checkbox" data-permission-function="${id}" ${granted ? "checked" : ""} />${label}</label>` : `<div class="permission-check"><span class="permission-read-icon ${granted ? "granted" : ""}"><i data-lucide="${granted ? "check" : "minus"}" aria-hidden="true"></i></span><span>${label}</span><span class="permission-read-status">${granted ? "已授权" : "未授权"}</span></div>`; }).join("")}</section>`).join("")}</div>`;
       } else if (selectedPermissionTab === "nodes") {
-        content.innerHTML = `<div class="permission-tip"><i class="permission-tip-icon" data-lucide="info" aria-hidden="true"></i>勾选节点后默认包含全部下级机构和校区；被上级覆盖的节点无需重复授权。</div><div class="permission-tree">${permissionNodeRows.map((node) => { const covered = permissionNodeCovered(node.id, user.nodes); const selected = user.nodes.includes(node.id); const control = permissionEditing ? `<input type="checkbox" data-permission-node="${node.id}" ${selected ? "checked" : ""} ${covered ? "disabled" : ""} />` : `<span class="permission-read-icon ${selected || covered ? "granted" : ""}"><i data-lucide="${selected || covered ? "check" : "minus"}" aria-hidden="true"></i></span>`; return `<label class="permission-tree-row depth-${node.depth}">${control}<i class="permission-tree-icon" data-lucide="${node.icon}" aria-hidden="true"></i><span>${node.name}</span><span class="permission-node-type">${node.type}</span><span class="permission-tree-note">${covered ? "继承上级授权" : selected ? "已授权，包含下级" : "未授权"}</span></label>`; }).join("")}</div>`;
+        content.innerHTML = `<div class="permission-tip"><i class="permission-tip-icon" data-lucide="info" aria-hidden="true"></i>勾选节点后默认包含全部下级渠道和学校；被上级覆盖的节点无需重复授权。</div><div class="permission-tree">${permissionNodeRows.map((node) => { const covered = permissionNodeCovered(node.id, user.nodes); const selected = user.nodes.includes(node.id); const control = permissionEditing ? `<input type="checkbox" data-permission-node="${node.id}" ${selected ? "checked" : ""} ${covered ? "disabled" : ""} />` : `<span class="permission-read-icon ${selected || covered ? "granted" : ""}"><i data-lucide="${selected || covered ? "check" : "minus"}" aria-hidden="true"></i></span>`; return `<label class="permission-tree-row depth-${node.depth}">${control}<i class="permission-tree-icon" data-lucide="${node.icon}" aria-hidden="true"></i><span>${node.name}</span><span class="permission-node-type">${node.type}</span><span class="permission-tree-note">${covered ? "继承上级授权" : selected ? "已授权，包含下级" : "未授权"}</span></label>`; }).join("")}</div>`;
       } else {
-        content.innerHTML = `<div class="permission-tip"><i class="permission-tip-icon" data-lucide="info" aria-hidden="true"></i>数据权限只在已授权的组织节点内生效；汇总数据不能进入明细记录。</div>${permissionDataRows.map(([id, name, note]) => { const labels = id === "contacts" ? [["hidden", "不可见"], ["summary", "脱敏"], ["detail", "完整"]] : [["hidden", "不可见"], ["summary", "仅汇总"], ["detail", "含明细"]]; const currentLabel = labels.find(([value]) => value === user.data[id])?.[1]; const control = permissionEditing ? `<div class="permission-levels" role="group" aria-label="${name}权限">${labels.map(([value, label]) => `<button type="button" class="permission-level ${user.data[id] === value ? "active" : ""}" data-permission-data="${id}" data-permission-value="${value}">${label}</button>`).join("")}</div>` : `<span class="permission-data-status ${user.data[id]}">${currentLabel}</span>`; return `<div class="permission-data-row"><div class="permission-data-name">${name}</div><div class="permission-data-note">${note}</div>${control}</div>`; }).join("")}`;
+        const reportItems = user.biReports.map((report) => permissionEditing
+          ? `<div class="permission-report"><div class="permission-report-fields"><input class="permission-report-input" data-permission-report-name="${escapeHtml(report.id)}" value="${escapeHtml(report.name)}" placeholder="报表名称" aria-label="报表名称" /><input class="permission-report-input" type="url" inputmode="url" data-permission-report-url="${escapeHtml(report.id)}" value="${escapeHtml(report.url)}" placeholder="粘贴 BI 报表链接" aria-label="BI 报表链接" /><button type="button" class="permission-report-remove" data-remove-permission-report="${escapeHtml(report.id)}" title="删除报表" aria-label="删除${escapeHtml(report.name || "此报表")}"><i data-lucide="trash-2" aria-hidden="true"></i></button></div></div>`
+          : `<div class="permission-report"><div class="permission-report-name">${escapeHtml(report.name)}</div><a class="permission-report-link" href="${escapeHtml(report.url)}" target="_blank" rel="noopener noreferrer"><span>${escapeHtml(report.url)}</span><i data-lucide="external-link" aria-hidden="true"></i></a></div>`).join("");
+        content.innerHTML = `<div class="permission-tip"><i class="permission-tip-icon" data-lucide="info" aria-hidden="true"></i>经营报表的可见内容由 BI 系统控制；超级管理员在这里手动维护该人员可访问的报表链接。</div><div class="permission-report-toolbar"><span class="permission-report-count">已配置 ${user.biReports.length} 张报表</span>${permissionEditing ? `<button type="button" class="ant-btn" data-add-permission-report><i data-lucide="plus" aria-hidden="true"></i>添加报表</button>` : ""}</div>${reportItems ? `<div class="permission-report-list">${reportItems}</div>` : `<div class="permission-report-empty">${permissionEditing ? "点击“添加报表”开始配置" : "暂未配置 BI 报表"}</div>`}`;
       }
       lucide.createIcons({ attrs: { "stroke-width": 1.8 } });
     }
@@ -3549,12 +3563,12 @@
         if (parent && parent.type === "channel") {
           const hqMoved = parent.channelKind === "franchise" && parent.hqCampusId && movingSet.has(parent.hqCampusId);
           const remaining = institutionsUnder(parentId).filter((item) => !movingSet.has(item.id));
-          if (hqMoved) blockers.push(`${parent.name} 的总部机构不能移出加盟渠道`);
-          else if (remaining.length === 0 && parentId !== targetId) blockers.push(`${parent.name} 将失去最后一家机构`);
+          if (hqMoved) blockers.push(`${parent.name} 的总部学校不能移出加盟渠道`);
+          else if (remaining.length === 0 && parentId !== targetId) blockers.push(`${parent.name} 将失去最后一所学校`);
         }
       });
       blocker.hidden = blockers.length === 0;
-      blocker.textContent = blockers.length ? `无法调整：${blockers.join("；")}。请先补充机构或停用渠道。` : "";
+      blocker.textContent = blockers.length ? `无法调整：${blockers.join("；")}。请先补充学校或停用渠道。` : "";
       document.getElementById("confirmAdjust").disabled = blockers.length > 0;
     }
 
@@ -3585,8 +3599,8 @@
       const selectedInstitution = parent.type === "institution";
       const channelParent = selectedInstitution ? byId(parent.parentId) : parent;
       if (selectedInstitution && !["platform", "group", "channel"].includes(channelParent?.type)) { showToast("当前机构没有可归属的新渠道上级"); return; }
-      document.getElementById("createParentPath").textContent = selectedInstitution ? `${customerPathText(channelParent.id)} · 新渠道创建后，${parent.name}将加入该渠道` : isDirectScope() ? `${customerPathText(parent.id)} > 直属单体机构` : customerPathText(parent.id);
-      const allowed = selectedInstitution ? ["channel"] : ["platform", "group", "channel"].includes(parent.type) ? (parent.type === "platform" ? ["group", "channel"] : ["channel"]) : [];
+      document.getElementById("createParentPath").textContent = selectedInstitution ? `${customerPathText(channelParent.id)} · 新渠道创建后，${parent.name}将加入该渠道` : isDirectScope() ? `${customerPathText(parent.id)} > 直属学校` : customerPathText(parent.id);
+      const allowed = selectedInstitution ? ["channel"] : ["platform", "group", "channel"].includes(parent.type) ? ["channel"] : [];
       if (!allowed.length) { showToast("当前节点不能新增下级渠道"); return; }
       document.getElementById("createTitle").textContent = "创建渠道";
       document.getElementById("createType").innerHTML = allowed.map((type) => `<option value="${type}">${nodeTypes[type].label}</option>`).join("");
@@ -3644,8 +3658,8 @@
           : `<option value="">暂无可关联机构</option>`;
         select.disabled = available.length === 0 || institutionSelected;
         document.getElementById("channelInstitutionHelp").textContent = institutionSelected
-          ? "仅将当前机构加入新渠道，创建后解除原归属关系"
-          : "仅可选择已注册且尚未归属渠道的机构；不会新建机构";
+          ? "仅将当前学校加入新渠道，创建后解除原归属关系"
+          : "仅可选择已注册且尚未归属渠道的学校；不会新建学校";
       }
       document.getElementById("createName").placeholder = type === "group" ? "输入教育集团名称" : "输入渠道名称";
     }
@@ -3750,7 +3764,7 @@
       inputs.forEach((input) => input.closest(".franchise-choice")?.classList.toggle("selected", input.checked));
       const summary = document.getElementById("franchiseSelectionSummary");
       summary.classList.toggle("has-selection", count > 0);
-      summary.innerHTML = count ? `已选择<strong>${count}</strong>家机构` : "尚未选择机构";
+      summary.innerHTML = count ? `已选择<strong>${count}</strong>所学校` : "尚未选择学校";
       document.getElementById("confirmFranchise").disabled = count === 0;
     }
 
@@ -4028,13 +4042,31 @@
       permissionDirty = true;
       renderPermissionContent();
     });
+    document.getElementById("permissionContent").addEventListener("input", (event) => {
+      if (!permissionEditing) return;
+      const reportId = event.target.dataset.permissionReportName || event.target.dataset.permissionReportUrl;
+      if (!reportId) return;
+      const report = selectedPermissionUser().biReports.find((item) => item.id === reportId);
+      if (!report) return;
+      if (event.target.matches("[data-permission-report-name]")) report.name = event.target.value;
+      if (event.target.matches("[data-permission-report-url]")) report.url = event.target.value.trim();
+      permissionDirty = true;
+      document.getElementById("savePermissions").disabled = false;
+    });
     document.getElementById("permissionContent").addEventListener("click", (event) => {
       if (!permissionEditing) return;
-      const levelButton = event.target.closest("[data-permission-value]");
-      if (!levelButton) return;
       const user = selectedPermissionUser();
-      if (user.data[levelButton.dataset.permissionData] === levelButton.dataset.permissionValue) return;
-      user.data[levelButton.dataset.permissionData] = levelButton.dataset.permissionValue;
+      if (event.target.closest("[data-add-permission-report]")) {
+        user.biReports.push({ id: `report-${Date.now()}-${user.biReports.length}`, name: "", url: "" });
+        permissionDirty = true;
+        renderPermissionContent();
+        const nameInputs = document.querySelectorAll("[data-permission-report-name]");
+        nameInputs[nameInputs.length - 1]?.focus();
+        return;
+      }
+      const removeButton = event.target.closest("[data-remove-permission-report]");
+      if (!removeButton) return;
+      user.biReports = user.biReports.filter((report) => report.id !== removeButton.dataset.removePermissionReport);
       permissionDirty = true;
       renderPermissionContent();
     });
@@ -4042,6 +4074,18 @@
     document.getElementById("savePermissions").addEventListener("click", () => {
       if (!permissionEditing) {
         startPermissionEdit();
+        return;
+      }
+      const reportNameInput = Array.from(document.querySelectorAll("[data-permission-report-name]")).find((input) => !input.value.trim());
+      if (reportNameInput) {
+        showToast("请填写报表名称");
+        reportNameInput.focus();
+        return;
+      }
+      const reportInput = Array.from(document.querySelectorAll("[data-permission-report-url]")).find((input) => !/^https?:\/\//i.test(input.value.trim()));
+      if (reportInput) {
+        showToast("请输入以 http:// 或 https:// 开头的 BI 链接");
+        reportInput.focus();
         return;
       }
       try { localStorage.setItem(permissionStorageKey, JSON.stringify(permissionUsers)); } catch (error) {}
@@ -4115,7 +4159,7 @@
         state.dashboardScopeId = "root";
         state.directScopeParentId = "root";
         document.getElementById("currentUser").textContent = "平台管理员 · 陈老师";
-        showToast("已切换到直属单体机构视角");
+        showToast("已切换到直属学校视角");
       } else {
         const scope = byId(scopeId);
         state.viewRootId = scopeId;
