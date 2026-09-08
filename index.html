@@ -2507,6 +2507,7 @@
         panel.classList.add("scope-refresh");
         clearTimeout(renderMetrics.animationTimer);
         renderMetrics.animationTimer = setTimeout(() => panel.classList.remove("scope-refresh"), 200);
+        animateScopeNumbers();
       }
       state.renderedMetricScopeKey = metricScopeKey;
       if (window.lucide) window.lucide.createIcons({ attrs: { "stroke-width": 1.8 } });
@@ -3025,6 +3026,32 @@
 
     let dashboardAnimationFrame = 0;
     let dashboardTrendTimer = 0;
+    let scopeAnimationFrame = 0;
+    function animateScopeNumbers() {
+      cancelAnimationFrame(scopeAnimationFrame);
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+      const numberIds = ["metricInstitutions", "metricStudents"];
+      const moneyIds = state.financialMetricsVisible ? ["metricFee", "metricLesson"] : [];
+      const items = [...numberIds.map((id) => ({ id, money: false })), ...moneyIds.map((id) => ({ id, money: true }))].map((item) => {
+        const element = document.getElementById(item.id);
+        const value = item.money ? element.dataset.visibleValue : element.textContent;
+        return { ...item, element, target: Number(value.replace(/[^\d]/g, "")) };
+      });
+      items.forEach(({ element, money }) => { element.textContent = `${money ? "¥" : ""}0`; });
+      const startedAt = performance.now();
+      const duration = 700;
+      const tick = (now) => {
+        if (state.currentPage !== "relations") return;
+        const progress = Math.min(1, (now - startedAt) / duration);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        items.forEach(({ element, target, money }) => {
+          element.textContent = `${money ? "¥" : ""}${formatNumber(Math.round(target * eased))}`;
+        });
+        if (progress < 1) scopeAnimationFrame = requestAnimationFrame(tick);
+      };
+      scopeAnimationFrame = requestAnimationFrame(tick);
+    }
+
     function animateDashboardTrend() {
       if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
       const chart = document.getElementById("businessTrend");
