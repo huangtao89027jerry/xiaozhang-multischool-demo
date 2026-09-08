@@ -60,32 +60,53 @@
 
     .login-screen { position: fixed; inset: 0; z-index: 500; display: grid; grid-template-columns: minmax(580px, 1.35fr) minmax(420px, .8fr); min-height: 100dvh; background: var(--surface); }
     .login-screen.is-leaving { opacity: 0; pointer-events: none; transition: opacity .18s ease; }
-    .login-side { min-width: 0; display: flex; flex-direction: column; padding: 38px 48px; background: #eef3f7; border-right: 1px solid #dfe7ee; }
+    .login-side { min-width: 0; display: flex; flex-direction: column; padding: 38px 48px; background: #edf3f6; border-right: 1px solid #dfe7ee; }
     .login-brand, .login-mobile-brand { display: flex; align-items: center; gap: 10px; font-size: 17px; font-weight: 600; }
     .login-brand .brand-mark, .login-mobile-brand .brand-mark { width: 32px; height: 32px; }
-    .login-side-content { width: min(700px, 100%); margin: auto; }
-    .login-intro { padding-left: 22px; border-left: 4px solid var(--primary); }
-    .login-side-title { margin: 0; color: #172033; font-size: 38px; line-height: 50px; font-weight: 600; }
-    .login-side-note { margin-top: 10px; color: #647184; font-size: 16px; }
-    .login-overview { margin-top: 36px; background: #fff; border: 1px solid #d6e1ea; border-radius: 8px; box-shadow: 0 18px 40px #183b5c12; overflow: hidden; }
-    .login-overview-head { min-height: 48px; display: flex; align-items: center; justify-content: space-between; padding: 0 18px; border-bottom: 1px solid #e8eef4; color: #172033; font-weight: 500; }
+    .login-side-content { width: min(720px, 100%); margin: auto; }
+    .login-kicker { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; color: #1677ff; font-size: 13px; font-weight: 500; }
+    .login-kicker::before { width: 24px; height: 2px; background: #1677ff; content: ""; }
+    .login-side-title { max-width: 620px; margin: 0; color: #172033; font-size: 40px; line-height: 52px; font-weight: 600; }
+    .login-side-note { max-width: 570px; margin-top: 12px; color: #647184; font-size: 16px; line-height: 28px; }
+    .login-overview { margin-top: 30px; background: #fff; border: 1px solid #d7e0e8; border-radius: 8px; box-shadow: 0 22px 50px #16324f17; overflow: hidden; }
+    .login-overview-head { min-height: 52px; display: flex; align-items: center; justify-content: space-between; padding: 0 18px; border-bottom: 1px solid #e8eef4; color: #172033; font-weight: 500; }
+    .login-overview-title { display: flex; align-items: center; gap: 9px; }
+    .login-overview-title-icon { width: 26px; height: 26px; display: grid; place-items: center; color: #1677ff; background: #e6f4ff; border-radius: 6px; }
+    .login-overview-title-icon svg { width: 15px; height: 15px; }
     .login-live { display: inline-flex; align-items: center; gap: 6px; color: #687386; font-size: 12px; font-weight: 400; }
     .login-live::before { width: 7px; height: 7px; background: #52c41a; border-radius: 50%; content: ""; }
     .login-stat-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); }
-    .login-stat { min-width: 0; padding: 18px; border-right: 1px solid #e8eef4; }
+    .login-stat { min-width: 0; padding: 16px 18px; border-right: 1px solid #e8eef4; }
     .login-stat:last-child { border-right: 0; }
     .login-stat-label { display: flex; align-items: center; gap: 7px; color: #7b8797; font-size: 12px; }
     .login-stat-label svg { width: 15px; height: 15px; color: #1677ff; }
     .login-stat:nth-child(2) .login-stat-label svg { color: #0891b2; }
     .login-stat:nth-child(3) .login-stat-label svg { color: #389e0d; }
-    .login-stat-value { margin-top: 5px; color: #172033; font-size: 24px; line-height: 32px; font-weight: 600; font-variant-numeric: tabular-nums; }
+    .login-stat-value { margin-top: 5px; color: #172033; font-size: 25px; line-height: 32px; font-weight: 600; font-variant-numeric: tabular-nums; }
     .login-stat-change { margin-top: 2px; color: #389e0d; font-size: 12px; }
-    .login-structure { display: grid; grid-template-columns: 32px minmax(0, 1fr) auto; align-items: center; gap: 10px; min-height: 58px; padding: 8px 18px; border-top: 1px solid #e8eef4; color: #263548; }
-    .login-structure + .login-structure { padding-left: 46px; }
-    .login-structure-icon { width: 28px; height: 28px; display: grid; place-items: center; color: #1677ff; background: #e6f4ff; border-radius: 6px; }
-    .login-structure-icon svg { width: 16px; height: 16px; }
-    .login-structure-meta { margin-top: 1px; color: #8a95a3; font-size: 12px; }
-    .login-structure-value { color: #687386; font-variant-numeric: tabular-nums; }
+    .login-network { position: relative; height: 190px; overflow: hidden; border-top: 1px solid #e8eef4; background: #f8fafc; }
+    .login-network-line { position: absolute; height: 1px; background: #cbdbe8; transform-origin: left center; }
+    .login-network-line.main { left: 18%; top: 50%; width: 29%; }
+    .login-network-line.up { left: 46%; top: 50%; width: 24%; transform: rotate(-24deg); }
+    .login-network-line.down { left: 46%; top: 50%; width: 24%; transform: rotate(24deg); }
+    .login-network-line.branch-up { left: 69%; top: 40%; width: 16%; transform: rotate(-22deg); }
+    .login-network-line.branch-down { left: 69%; top: 60%; width: 16%; transform: rotate(22deg); }
+    .login-network-node { position: absolute; z-index: 1; display: grid; place-items: center; border: 1px solid; box-shadow: 0 8px 20px #16324f12; }
+    .login-network-node svg { width: 18px; height: 18px; }
+    .login-network-node.platform { top: 61px; left: 11%; width: 66px; height: 66px; color: #fff; background: #1677ff; border-color: #1677ff; border-radius: 8px; }
+    .login-network-node.channel { top: 70px; left: 43%; width: 48px; height: 48px; color: #006d75; background: #d9f7f5; border-color: #87e8de; border-radius: 7px; }
+    .login-network-node.school { width: 38px; height: 38px; color: #237804; background: #f0fae9; border-color: #b7eb8f; border-radius: 6px; }
+    .login-network-node.school.one { top: 24px; left: 68%; }
+    .login-network-node.school.two { bottom: 24px; left: 68%; }
+    .login-network-node.school.three { top: 18px; right: 8%; }
+    .login-network-node.school.four { bottom: 18px; right: 8%; }
+    .login-network-label { position: absolute; z-index: 2; color: #7b8797; font-size: 11px; white-space: nowrap; }
+    .login-network-label.platform { top: 134px; left: 10%; color: #3c4c5f; font-weight: 500; }
+    .login-network-label.channel { top: 124px; left: 42%; }
+    .login-network-label.school { top: 78px; right: 7%; }
+    .login-network-pulse { position: absolute; z-index: 2; width: 7px; height: 7px; background: #36cfc9; border: 2px solid #fff; border-radius: 50%; box-shadow: 0 0 0 2px #87e8de; }
+    .login-network-pulse.first { top: 91px; left: 34%; }
+    .login-network-pulse.second { top: 56px; left: 61%; background: #95de64; box-shadow: 0 0 0 2px #d9f7be; }
     .login-panel { display: grid; place-items: center; padding: 48px; background: var(--surface); border-top: 4px solid var(--primary); }
     .login-form-wrap { width: min(380px, 100%); }
     .login-mobile-brand { display: none; margin-bottom: 42px; }
@@ -1267,16 +1288,19 @@
     <div class="login-side">
       <div class="login-brand"><span class="brand-mark">校</span><span>校掌管理平台</span></div>
       <div class="login-side-content">
-        <div class="login-intro"><h1 class="login-side-title">多校区经营管理</h1><div class="login-side-note">集中查看机构、学员、收费与课消数据</div></div>
+        <div class="login-intro"><div class="login-kicker">连锁学校经营中枢</div><h1 class="login-side-title">多校经营，一屏掌握</h1><div class="login-side-note">从平台到渠道、学校和校区，经营数据统一汇总，组织边界清晰可控。</div></div>
         <div class="login-overview" aria-hidden="true">
-          <div class="login-overview-head"><span>经营快照</span><span class="login-live">数据已更新</span></div>
+          <div class="login-overview-head"><span class="login-overview-title"><span class="login-overview-title-icon"><i data-lucide="chart-no-axes-combined"></i></span>经营总览</span><span class="login-live">今日已更新</span></div>
           <div class="login-stat-grid">
-            <div class="login-stat"><div class="login-stat-label"><i data-lucide="building-2"></i>下属机构</div><div class="login-stat-value">500</div><div class="login-stat-change">本月新增 22 家</div></div>
+            <div class="login-stat"><div class="login-stat-label"><i data-lucide="school"></i>覆盖学校</div><div class="login-stat-value">500</div><div class="login-stat-change">本月新增 22 所</div></div>
             <div class="login-stat"><div class="login-stat-label"><i data-lucide="users"></i>在读学员</div><div class="login-stat-value">231,825</div><div class="login-stat-change">↑ 6.8%</div></div>
             <div class="login-stat"><div class="login-stat-label"><i data-lucide="circle-dollar-sign"></i>本月净收费</div><div class="login-stat-value">¥1.40亿</div><div class="login-stat-change">↑ 12.6%</div></div>
           </div>
-          <div class="login-structure"><span class="login-structure-icon"><i data-lucide="building-2"></i></span><div><div>朋阳教育集团</div><div class="login-structure-meta">总部与直营机构</div></div><span class="login-structure-value">5 家</span></div>
-          <div class="login-structure"><span class="login-structure-icon"><i data-lucide="school"></i></span><div><div>中心校区</div><div class="login-structure-meta">学员与收费汇总</div></div><span class="login-structure-value">820 人</span></div>
+          <div class="login-network">
+            <span class="login-network-line main"></span><span class="login-network-line up"></span><span class="login-network-line down"></span><span class="login-network-line branch-up"></span><span class="login-network-line branch-down"></span>
+            <span class="login-network-node platform"><i data-lucide="blocks"></i></span><span class="login-network-node channel"><i data-lucide="network"></i></span><span class="login-network-node school one"><i data-lucide="school"></i></span><span class="login-network-node school two"><i data-lucide="school"></i></span><span class="login-network-node school three"><i data-lucide="school"></i></span><span class="login-network-node school four"><i data-lucide="school"></i></span>
+            <span class="login-network-label platform">校猩猩平台</span><span class="login-network-label channel">渠道网络</span><span class="login-network-label school">多校经营</span><span class="login-network-pulse first"></span><span class="login-network-pulse second"></span>
+          </div>
         </div>
       </div>
     </div>
