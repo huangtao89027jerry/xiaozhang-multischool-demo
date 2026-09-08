@@ -1308,10 +1308,7 @@
       <div class="nav-label">工作台</div>
       <button class="nav-item" id="navDashboard"><i class="nav-icon" data-lucide="layout-dashboard" aria-hidden="true"></i><span>经营总览</span></button>
       <button class="nav-item active" id="navRelations"><i class="nav-icon" data-lucide="network" aria-hidden="true"></i><span>学校管理</span></button>
-      <div class="nav-label">客户经营</div>
-      <button class="nav-item mobile-nav-hidden" data-module="orders"><i class="nav-icon" data-lucide="receipt-text" aria-hidden="true"></i><span>套餐订单</span></button>
       <div class="nav-label">平台监管</div>
-      <button class="nav-item mobile-nav-hidden" data-module="courses"><i class="nav-icon" data-lucide="book-open" aria-hidden="true"></i><span>课程中心</span></button>
       <button class="nav-item mobile-nav-hidden" data-module="audit"><i class="nav-icon" data-lucide="shield-check" aria-hidden="true"></i><span>权限设置</span></button>
       <button class="nav-item mobile-only" id="mobileMoreButton"><i class="nav-icon" data-lucide="user-round" aria-hidden="true"></i><span>我的</span></button>
       <button type="button" class="nav-collapse-toggle" id="navCollapseToggle" aria-label="收起导航栏" title="收起导航栏"><i data-lucide="chevron-left" aria-hidden="true"></i></button>
@@ -1448,8 +1445,6 @@
         </section>
         <section class="my-section" aria-label="常用功能">
           <div class="my-section-title">常用功能</div>
-          <button type="button" class="my-action" data-my-module="orders"><i data-lucide="receipt-text" aria-hidden="true"></i><span class="my-action-label">套餐订单</span><i data-lucide="chevron-right" aria-hidden="true"></i></button>
-          <button type="button" class="my-action" data-my-module="courses"><i data-lucide="book-open" aria-hidden="true"></i><span class="my-action-label">课程中心</span><i data-lucide="chevron-right" aria-hidden="true"></i></button>
           <button type="button" class="my-action" data-my-module="audit"><i data-lucide="shield-check" aria-hidden="true"></i><span class="my-action-label">权限设置</span><i data-lucide="chevron-right" aria-hidden="true"></i></button>
           <button type="button" class="my-action" id="mobileLogoutButton"><i data-lucide="log-out" aria-hidden="true"></i><span class="my-action-label">退出登录</span><i data-lucide="chevron-right" aria-hidden="true"></i></button>
         </section>
@@ -1560,8 +1555,6 @@
     <section class="mobile-more-panel" role="dialog" aria-modal="true" aria-labelledby="mobileMoreTitle">
       <div class="mobile-more-title"><span id="mobileMoreTitle">我的功能</span><button type="button" class="modal-close" data-close="mobileMoreMenu" aria-label="关闭">×</button></div>
       <div class="mobile-more-grid">
-        <button type="button" class="mobile-more-item" data-module="courses"><i data-lucide="book-open" aria-hidden="true"></i><span>课程中心</span></button>
-        <button type="button" class="mobile-more-item" data-module="orders"><i data-lucide="receipt-text" aria-hidden="true"></i><span>套餐订单</span></button>
         <button type="button" class="mobile-more-item" data-module="audit"><i data-lucide="shield-check" aria-hidden="true"></i><span>权限设置</span></button>
       </div>
     </section>
@@ -2007,8 +2000,8 @@
       delete user.data;
     });
     const permissionFunctionGroups = [
-      ["经营查看", [["dashboard", "查看经营总览"], ["relations", "查看机构管理"], ["orders", "查看套餐订单"]]],
-      ["组织管理", [["org-edit", "调整机构归属与总部标签"], ["courses", "管理课程与授权"]]],
+      ["经营查看", [["dashboard", "查看经营总览"], ["relations", "查看机构管理"]]],
+      ["组织管理", [["org-edit", "调整机构归属与总部标签"]]],
       ["平台管理", [["audit", "配置人员权限"], ["export", "导出经营数据"]]]
     ];
     const permissionNodeRows = [
@@ -3379,9 +3372,10 @@
     function renderPermissionContent() {
       const user = selectedPermissionUser();
       const nodeSummary = user.nodes.length ? user.nodes.map((id) => `${permissionNodeName(id)}${id.includes("campus") ? "" : "及下级"}`).join("、") : "未授权组织范围";
+      const visibleFunctionCount = permissionFunctionGroups.flatMap(([, items]) => items).filter(([id]) => user.functions.includes(id)).length;
       document.getElementById("permissionPersonName").textContent = `${user.name} · ${user.role}`;
       document.getElementById("permissionPersonInstitution").innerHTML = `所属机构：${user.institution}<span class="permission-person-source">来自系统账号</span>`;
-      document.getElementById("permissionSummary").textContent = `${user.functions.length} 项功能 · ${nodeSummary} · BI 报表 ${user.biReports.length} 张`;
+      document.getElementById("permissionSummary").textContent = `${visibleFunctionCount} 项功能 · ${nodeSummary} · BI 报表 ${user.biReports.length} 张`;
       document.querySelector(".permission-main").classList.toggle("is-editing", permissionEditing);
       document.getElementById("permissionMode").textContent = permissionEditing ? "编辑中" : "查看中";
       document.getElementById("permissionMode").classList.toggle("editing", permissionEditing);
