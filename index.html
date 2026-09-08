@@ -1483,15 +1483,10 @@
             <details class="scope-actions-more" id="scopeActionsMore" hidden>
               <summary class="ant-btn">更多</summary>
               <div class="scope-actions-menu">
-                <button class="ant-btn" id="renameButton">修改名称</button>
-                <button class="ant-btn ant-btn-danger" id="deleteChannelButton">删除渠道</button>
-              </div>
-            </details>
-            <details class="scope-actions-more" id="createActionsMore" hidden>
-              <summary class="ant-btn">更多</summary>
-              <div class="scope-actions-menu">
                 <button class="ant-btn" id="toggleScopeHeadquartersTagButton" hidden>设为总部学校</button>
                 <button class="ant-btn" id="createButton" aria-label="创建渠道" title="创建渠道">创建渠道</button>
+                <button class="ant-btn" id="renameButton">修改名称</button>
+                <button class="ant-btn ant-btn-danger" id="deleteChannelButton">删除渠道</button>
               </div>
             </details>
             <details class="scope-actions-more mobile-scope-actions-more" id="mobileScopeActionsMore">
@@ -2706,16 +2701,18 @@
     function renderHeadingActions() {
       const scopeNode = byId(state.selectedNodeId);
       const channelActions = !isDirectScope() && isChannelNode(scopeNode);
-      document.getElementById("scopeActionsMore").hidden = !channelActions;
-      if (!channelActions) document.getElementById("scopeActionsMore").open = false;
       const canCreateChannel = ["platform", "group", "channel", "institution"].includes(scopeNode.type);
-      document.getElementById("createActionsMore").hidden = !canCreateChannel;
-      if (!canCreateChannel) document.getElementById("createActionsMore").open = false;
+      document.getElementById("createButton").hidden = !canCreateChannel;
+      document.getElementById("renameButton").hidden = !channelActions;
+      document.getElementById("deleteChannelButton").hidden = !channelActions;
       document.getElementById("adjustButton").hidden = isDirectScope() || scopeNode.type !== "institution";
       document.getElementById("franchiseScopeButton").hidden = !channelActions;
       const scopeHeadquartersButton = document.getElementById("toggleScopeHeadquartersTagButton");
       scopeHeadquartersButton.hidden = isDirectScope() || scopeNode.type !== "institution";
       scopeHeadquartersButton.textContent = scopeNode.role === "hq" ? "取消总部学校" : "设为总部学校";
+      const scopeMore = document.getElementById("scopeActionsMore");
+      scopeMore.hidden = [...scopeMore.querySelectorAll(".scope-actions-menu > button")].every((button) => button.hidden);
+      if (scopeMore.hidden) scopeMore.open = false;
       const mobileActions = document.querySelectorAll("[data-mobile-scope-action]");
       mobileActions.forEach((button) => {
         const target = document.getElementById(button.dataset.mobileScopeAction);
