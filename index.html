@@ -68,45 +68,25 @@
     .login-kicker::before { width: 24px; height: 2px; background: #1677ff; content: ""; }
     .login-side-title { max-width: 620px; margin: 0; color: #172033; font-size: 40px; line-height: 52px; font-weight: 600; }
     .login-side-note { max-width: 570px; margin-top: 12px; color: #647184; font-size: 16px; line-height: 28px; }
-    .login-overview { margin-top: 30px; background: #fff; border: 1px solid #d7e0e8; border-radius: 8px; box-shadow: 0 22px 50px #16324f17; overflow: hidden; }
-    .login-overview-head { min-height: 52px; display: flex; align-items: center; justify-content: space-between; padding: 0 18px; border-bottom: 1px solid #e8eef4; color: #172033; font-weight: 500; }
-    .login-overview-title { display: flex; align-items: center; gap: 9px; }
-    .login-overview-title-icon { width: 26px; height: 26px; display: grid; place-items: center; color: #1677ff; background: #e6f4ff; border-radius: 6px; }
-    .login-overview-title-icon svg { width: 15px; height: 15px; }
-    .login-live { display: inline-flex; align-items: center; gap: 6px; color: #687386; font-size: 12px; font-weight: 400; }
-    .login-live::before { width: 7px; height: 7px; background: #52c41a; border-radius: 50%; content: ""; }
-    .login-stat-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); }
-    .login-stat { min-width: 0; padding: 16px 18px; border-right: 1px solid #e8eef4; }
-    .login-stat:last-child { border-right: 0; }
-    .login-stat-label { display: flex; align-items: center; gap: 7px; color: #7b8797; font-size: 12px; }
-    .login-stat-label svg { width: 15px; height: 15px; color: #1677ff; }
-    .login-stat:nth-child(2) .login-stat-label svg { color: #0891b2; }
-    .login-stat:nth-child(3) .login-stat-label svg { color: #389e0d; }
-    .login-stat-value { margin-top: 5px; color: #172033; font-size: 25px; line-height: 32px; font-weight: 600; font-variant-numeric: tabular-nums; }
-    .login-stat-change { margin-top: 2px; color: #389e0d; font-size: 12px; }
-    .login-network { position: relative; height: 190px; overflow: hidden; border-top: 1px solid #e8eef4; background: #f8fafc; }
-    .login-network-line { position: absolute; height: 1px; background: #cbdbe8; transform-origin: left center; }
-    .login-network-line.main { left: 18%; top: 50%; width: 29%; }
-    .login-network-line.up { left: 46%; top: 50%; width: 24%; transform: rotate(-24deg); }
-    .login-network-line.down { left: 46%; top: 50%; width: 24%; transform: rotate(24deg); }
-    .login-network-line.branch-up { left: 69%; top: 40%; width: 16%; transform: rotate(-22deg); }
-    .login-network-line.branch-down { left: 69%; top: 60%; width: 16%; transform: rotate(22deg); }
-    .login-network-node { position: absolute; z-index: 1; display: grid; place-items: center; border: 1px solid; box-shadow: 0 8px 20px #16324f12; }
-    .login-network-node svg { width: 18px; height: 18px; }
-    .login-network-node.platform { top: 61px; left: 11%; width: 66px; height: 66px; color: #fff; background: #1677ff; border-color: #1677ff; border-radius: 8px; }
-    .login-network-node.channel { top: 70px; left: 43%; width: 48px; height: 48px; color: #006d75; background: #d9f7f5; border-color: #87e8de; border-radius: 7px; }
-    .login-network-node.school { width: 38px; height: 38px; color: #237804; background: #f0fae9; border-color: #b7eb8f; border-radius: 6px; }
-    .login-network-node.school.one { top: 24px; left: 68%; }
-    .login-network-node.school.two { bottom: 24px; left: 68%; }
-    .login-network-node.school.three { top: 18px; right: 8%; }
-    .login-network-node.school.four { bottom: 18px; right: 8%; }
-    .login-network-label { position: absolute; z-index: 2; color: #7b8797; font-size: 11px; white-space: nowrap; }
-    .login-network-label.platform { top: 134px; left: 10%; color: #3c4c5f; font-weight: 500; }
-    .login-network-label.channel { top: 124px; left: 42%; }
-    .login-network-label.school { top: 78px; right: 7%; }
-    .login-network-pulse { position: absolute; z-index: 2; width: 7px; height: 7px; background: #36cfc9; border: 2px solid #fff; border-radius: 50%; box-shadow: 0 0 0 2px #87e8de; }
-    .login-network-pulse.first { top: 91px; left: 34%; }
-    .login-network-pulse.second { top: 56px; left: 61%; background: #95de64; box-shadow: 0 0 0 2px #d9f7be; }
+    .login-art { position: relative; height: 320px; margin-top: 24px; overflow: hidden; }
+    .login-art-path { position: absolute; border: 2px solid #b9d4f5; border-left: 0; border-bottom: 0; }
+    .login-art-path.one { top: 54px; left: 6%; width: 45%; height: 180px; transform: skewY(-13deg); }
+    .login-art-path.two { right: 5%; bottom: 34px; width: 43%; height: 142px; border-color: #a8e0d4; transform: skewY(14deg); }
+    .login-art-plane { position: absolute; transform: skewY(-12deg); box-shadow: 0 18px 35px #274b7014; }
+    .login-art-plane.back { top: 70px; left: 15%; width: 64%; height: 150px; background: #dcecff; border: 1px solid #c4dcf7; }
+    .login-art-plane.middle { top: 102px; left: 24%; width: 64%; height: 150px; background: #fff; border: 1px solid #d8e3ed; }
+    .login-art-plane.front { top: 142px; left: 34%; width: 52%; height: 112px; background: #dff7f1; border: 1px solid #b8e7dc; }
+    .login-art-tower { position: absolute; z-index: 2; bottom: 84px; width: 64px; border: 1px solid; box-shadow: 0 16px 30px #22496b17; transform: skewY(-5deg); }
+    .login-art-tower::before, .login-art-tower::after { position: absolute; left: 14px; right: 14px; height: 5px; background: currentColor; opacity: .42; content: ""; }
+    .login-art-tower::before { top: 24px; }
+    .login-art-tower::after { top: 46px; }
+    .login-art-tower.primary { left: 42%; height: 142px; color: #fff; background: #1677ff; border-color: #0866d8; }
+    .login-art-tower.teal { left: calc(42% - 88px); height: 98px; color: #007f78; background: #b7eee3; border-color: #75d4c4; }
+    .login-art-tower.green { left: calc(42% + 88px); height: 112px; color: #2c7a3f; background: #d8f2d5; border-color: #a7dca2; }
+    .login-art-bridge { position: absolute; z-index: 3; bottom: 108px; left: 23%; width: 56%; height: 14px; background: #ffd666; border: 1px solid #f3bf35; transform: rotate(-7deg) skewX(-24deg); box-shadow: 0 9px 18px #b6851b1a; }
+    .login-art-marker { position: absolute; z-index: 4; width: 20px; height: 20px; border: 5px solid #fff; box-shadow: 0 5px 14px #173d611f; transform: rotate(45deg); }
+    .login-art-marker.first { top: 47px; right: 22%; background: #ff7a68; }
+    .login-art-marker.second { bottom: 40px; left: 23%; background: #36cfc9; }
     .login-panel { display: grid; place-items: center; padding: 48px; background: var(--surface); border-top: 4px solid var(--primary); }
     .login-form-wrap { width: min(380px, 100%); }
     .login-mobile-brand { display: none; margin-bottom: 42px; }
@@ -1288,19 +1268,12 @@
     <div class="login-side">
       <div class="login-brand"><span class="brand-mark">校</span><span>校掌管理平台</span></div>
       <div class="login-side-content">
-        <div class="login-intro"><div class="login-kicker">连锁学校经营中枢</div><h1 class="login-side-title">多校经营，一屏掌握</h1><div class="login-side-note">从平台到渠道、学校和校区，经营数据统一汇总，组织边界清晰可控。</div></div>
-        <div class="login-overview" aria-hidden="true">
-          <div class="login-overview-head"><span class="login-overview-title"><span class="login-overview-title-icon"><i data-lucide="chart-no-axes-combined"></i></span>经营总览</span><span class="login-live">今日已更新</span></div>
-          <div class="login-stat-grid">
-            <div class="login-stat"><div class="login-stat-label"><i data-lucide="school"></i>覆盖学校</div><div class="login-stat-value">500</div><div class="login-stat-change">本月新增 22 所</div></div>
-            <div class="login-stat"><div class="login-stat-label"><i data-lucide="users"></i>在读学员</div><div class="login-stat-value">231,825</div><div class="login-stat-change">↑ 6.8%</div></div>
-            <div class="login-stat"><div class="login-stat-label"><i data-lucide="circle-dollar-sign"></i>本月净收费</div><div class="login-stat-value">¥1.40亿</div><div class="login-stat-change">↑ 12.6%</div></div>
-          </div>
-          <div class="login-network">
-            <span class="login-network-line main"></span><span class="login-network-line up"></span><span class="login-network-line down"></span><span class="login-network-line branch-up"></span><span class="login-network-line branch-down"></span>
-            <span class="login-network-node platform"><i data-lucide="blocks"></i></span><span class="login-network-node channel"><i data-lucide="network"></i></span><span class="login-network-node school one"><i data-lucide="school"></i></span><span class="login-network-node school two"><i data-lucide="school"></i></span><span class="login-network-node school three"><i data-lucide="school"></i></span><span class="login-network-node school four"><i data-lucide="school"></i></span>
-            <span class="login-network-label platform">校猩猩平台</span><span class="login-network-label channel">渠道网络</span><span class="login-network-label school">多校经营</span><span class="login-network-pulse first"></span><span class="login-network-pulse second"></span>
-          </div>
+        <div class="login-intro"><div class="login-kicker">连锁学校经营中枢</div><h1 class="login-side-title">让每一所学校<br>协同生长</h1><div class="login-side-note">连接组织与经营，让多校管理更清晰、更从容。</div></div>
+        <div class="login-art" aria-hidden="true">
+          <span class="login-art-path one"></span><span class="login-art-path two"></span>
+          <span class="login-art-plane back"></span><span class="login-art-plane middle"></span><span class="login-art-plane front"></span>
+          <span class="login-art-tower teal"></span><span class="login-art-tower primary"></span><span class="login-art-tower green"></span>
+          <span class="login-art-bridge"></span><span class="login-art-marker first"></span><span class="login-art-marker second"></span>
         </div>
       </div>
     </div>
